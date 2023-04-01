@@ -2,9 +2,8 @@
 This project is based on Scrimba's "Basketball Scoreboard", which is a project in the Frontend Career Path course.
 
 ## Deployment
-This repository is being auto-deployed via a Netlify.
+This repository is being auto-deployed via Netlify.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3339e188-2bad-4e03-90fe-e26fe3ef25c4/deploy-status)](https://app.netlify.com/sites/inquisitive-bonbon-46740a/deploys)
 
 ## Requirements 
 * Build it from "scratch"
