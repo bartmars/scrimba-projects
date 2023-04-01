@@ -1,9 +1,6 @@
 # Scrimba Solo Project - Basketball Scoreboard
 This project is based on Scrimba's "Basketball Scoreboard", which is a project in the Frontend Career Path course.
 
-## Authors
-Bart Mars
-
 ## Deployment
 This repository is being auto-deployed via a [Netlify app](https://).
 
