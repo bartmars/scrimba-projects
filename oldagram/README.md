@@ -4,7 +4,7 @@ Scrimba Soloproject from the Frontend Developer Career Path, built from scratch.
 ## Deployment
 This repository is being auto-deployed via a [Netlify app](https://www.netlify.com).
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/eb27cfbb-4b56-4172-a7b3-3c161e163bc3/deploy-status)](https://app.netlify.com/sites/guileless-taiyaki-581921/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/eb27cfbb-4b56-4172-a7b3-3c161e163bc3/deploy-status?branch=oldagram)](https://app.netlify.com/sites/guileless-taiyaki-581921/deploys)
 
 ## Design
 [Figma Design](https://www.figma.com/file/h0MKma9TTWzGOMQ9Ia6ROW/Oldagram?node-id=0%3A1)
