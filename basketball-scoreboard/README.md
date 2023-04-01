@@ -7,7 +7,7 @@ Bart Mars
 ## Deployment
 This repository is being auto-deployed via a [Netlify app](https://).
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/3339e188-2bad-4e03-90fe-e26fe3ef25c4/deploy-status?branch=main)](https://app.netlify.com/sites/inquisitive-bonbon-46740a/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/11d9079e-108c-4625-95b7-f46539fba980/deploy-status)](https://app.netlify.com/sites/calm-alfajores-61c046/deploys)
 
 ## Requirements 
 * Build it from "scratch"
