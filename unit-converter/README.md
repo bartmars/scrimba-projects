@@ -2,9 +2,7 @@
 Scrimba Soloproject from the Frontend Developer Career Path
 
 ## Deployment
-This repository is being auto-deployed via a [Netlify app](https://www.netlify.com).
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/11d9079e-108c-4625-95b7-f46539fba980/deploy-status)](https://app.netlify.com/sites/calm-alfajores-61c046/deploys)
+This repository is being auto-deployed via Netlify app
 
 ## Requirements
 * [x] Build it from “Scratch”
