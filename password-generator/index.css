@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    background: #1C1C1C;
+    color: #FFFFFF;
+    font-family: 'Karla', sans-serif;
+}
+
+.accent-clr {
+    color: #4ADF86;
+}
+
+.password {
+    background: #273549;
+    border: none;
+    color: #55F991;
+    text-align: center;
+    margin: 30px 0 0 0px;
+    padding: 16px 20px;
+    border-radius: 6px;
+    width: 180px;
+    display: inline-block;
+    height: 1em;
+    width: 200px;
+}
+
+.password:last-of-type {
+    margin: 15px auto;
+}
+
+.seperator {
+    border: #2F3E53 .5px solid;
+    margin: 10px 0 30px 0;
+}
+
+.accent-btn {
+    color: #FFFFFF;
+    background: #10B981;
+    font-size: 18px;
+    /* margin: 30px 0 0 0; */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-gap {
+    gap: 50px;
+}
+
+.special-on-btn {
+    width: 75px;
+    background: #10B981;
+    margin: 0px 0px 40px 0px;
+}
+
+.special-on-btn:hover {
+    background: #273549;
+}
+
+.special-off-btn {
+    width: 75px;
+    background: #273549;
+    margin: 0px 0px 40px 0px;
+}
+
+.special-off-btn:hover {
+    background: #10B981;
+}
+
+#hero-text {
+    font-weight: bolder;
+}
+
+#subtitle-text {
+    color: #D5D4D8;
+    font-weight: normal;
+}
+
+#password-box {
+    background: #1F2937;
+    padding: 100px 40px;
+    margin: 40px 60px;
+    max-width: 550px;
+    max-height: 550px;
+}
+
+#generate-passwords-btn {
+    margin: 30px 0 0 0;
+}
+
+#custom {
+    margin: 20px 0 0 0;
+}
+
+#number-of-chars {
+    margin: 0;
+    padding: 10px 20px;
+    height: 40px;
+    font-size: 18px;
+    width: 100px;
+}

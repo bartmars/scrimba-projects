@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="container">
+            <div id="home-team" class="centered">
+                <h3>HOME</h3>
+                <h4 id="home-score-el" class="scoreboard">0</h4>
+                <button class="btn" onclick="addHome1Point()">+1</button>
+                <button class="btn" onclick="addHome2Points()">+2</button>
+                <button class="btn" onclick="addHome3Points()">+3</button>
+            </div>
+            <div id="guest-team" class="centered">
+                <h3>VISITOR</h3>
+                <h4 id="visitor-score-el" class="scoreboard">0</h4>
+                <button class="btn" onclick="addVisitor1Point()">+1</button>
+                <button class="btn" onclick="addVisitor2Points()">+2</button>
+                <button class="btn" onclick="addVisitor3Points()">+3</button>
+            </div>
+        </div>
+        <div class="container centered">
+            <div>
+                <h3>FOULS</h3>
+                <h4 id="home-foul-el" class="scoreboard">0</h4>
+                <button id="add-foul-home" class="btn" onclick="addHomeFoul()">+1</button>             
+            </div>
+            <div>
+                <h3>PERIOD</h3>
+                <h4 id="period-el" class="scoreboard">1</h4>
+                <button id="period-el" class="btn" onclick="addPeriod()">+1</button>             
+            </div>
+            <div>
+                <h3>FOULS</h3>
+                <h4 id="visitor-foul-el" class="scoreboard">0</h4>
+                <button id="add-foul-visitor" class="btn" onclick="addVisitorFoul()">+1</button>             
+            </div>
+        </div>
+        <!-- <div class="container centered">
+            <div>
+                <h3>TIMER</h3>
+                <h4 id="period-timer-el" class="scoreboard">10:00</h4>
+            </div>
+        </div> -->
+        <div class="container centered">
+            <div>
+                <h3>NEW GAME</h3>
+                <button id="reset-game" class="btn" onclick="resetGame()">Reset</button>
+            </div>
+        </div>
+        <script src="index.js"></script>
+    </body>
+</html>
