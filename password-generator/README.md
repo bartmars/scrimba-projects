@@ -5,9 +5,8 @@ Scrimba Soloproject from the Frontend Developer Career Path, built from scratch.
 Bart Mars
 
 ## Deployment
-This repository is being auto-deployed via a [Netlify app](https://www.netlify.com).
+This repository is being auto-deployed via Netlify.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/1431af0d-e7e5-4698-a712-7ea54c2916b9/deploy-status)](https://app.netlify.com/sites/fantastic-smakager-d5486b/deploys)
 
 ## Requirements
 * [x] Build it from “Scratch”
