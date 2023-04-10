@@ -1,3 +1,74 @@
 body {
     margin: 0;
+    box-sizing: border-box;
+    font-family: 'Smythe', cursive;
 } 
+
+.red {
+    border: 1px red solid;
+}
+
+.hidden {
+    display: none;
+}
+
+.container {
+    width: 600px;
+    margin: 0 auto;
+}
+
+.header-bg {
+    background-image: url("https://images.unsplash.com/photo-1616645500344-209060c84970?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2370&q=80");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 167px;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    padding-left: 45px;
+    margin-bottom: 12px;
+}
+
+.item-outer {
+    border-bottom: solid 1px #bdbdbd;
+    margin: 0 auto;
+    width: 550px;
+}
+
+.item-inner {
+    display: flex;
+    padding: 45px;
+    gap: 20px;
+    align-items: center;
+    padding: 0 0;
+}
+
+.card-inner {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-emoji {
+    font-size: 70px;
+}
+
+.item-description {
+    color: #8b8b8b;
+}
+
+.item-price {
+    font-size: 20px;
+}
+
+.item-btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 30px;
+    border-radius: 50%;
+    border: 1px solid #dedede;
+    margin: auto auto;
+    width: 50px;
+    height: 50px;
+    color: gray;
+    margin-right: 0;
+}

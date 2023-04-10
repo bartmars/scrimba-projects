@@ -9,8 +9,9 @@ These are solo projects that I've done for the Frontend Career Path:
 | Unit Converter        | [![Netlify Status](https://api.netlify.com/api/v1/badges/11d9079e-108c-4625-95b7-f46539fba980/deploy-status)](https://app.netlify.com/sites/calm-alfajores-61c046/deploys)        |
 | Hometown Homepage     | [![Netlify Status](https://api.netlify.com/api/v1/badges/d19a7bb5-e0ea-4040-98d8-1ccaa2686236/deploy-status)](https://app.netlify.com/sites/astonishing-queijadas-cc6274/deploys) |
 
-The Netlify badges that say 'cancelled', are still build with succes but because I'm using a free account, the build is cancelled prematurely due to the 1 agent that is assigned to a free account.
+The Netlify badges that say 'cancelled', are still successfully build. I'm using a free account, which causes the build to be cancelled prematurely due to the 1 build agent that is assigned to a free account.
 
+Also, this probably due to the fact that I'm building from a monorepo. 
 
 
 
