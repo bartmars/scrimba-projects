@@ -53,7 +53,7 @@ body {
     font-size: 70px;
 }
 
-.item-description {
+.text-gray {
     color: #8b8b8b;
 }
 
@@ -61,7 +61,7 @@ body {
     font-size: 20px;
 }
 
-.item-btn {
+.btn-item {
     font-family: 'Inter', sans-serif;
     font-size: 30px;
     border-radius: 50%;
@@ -71,4 +71,13 @@ body {
     height: 50px;
     color: gray;
     margin-right: 0;
+}
+
+.btn-remove {
+    border: none;
+    background: none;
+}
+
+.align-right {
+    text-align: right;
 }
