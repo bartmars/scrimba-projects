@@ -14,7 +14,7 @@ document.addEventListener('click', function(e) {
     }
 })
 
-function handleAddToCart(btnAddItemId) {    
+function handleAddToCart(btnAddItemId) {   
     const itemObj = menuArray.filter(function(item) {
         return item.id == btnAddItemId
     })[0]
@@ -28,16 +28,20 @@ function handleAddToCart(btnAddItemId) {
 
     cartTotal += itemObj.price
 
+    toggleCartVisibility()
+
     render()
 }
 
 function toggleCartVisibility () {
-    if (cartArray.length === 0) {
-        isCartEmpty = true
-    } else {
+    if (isCartEmpty) {
+        document.getElementById('card-items').classList.toggle('hidden')
         isCartEmpty = false
+    } else {
+        if (cartArray.length === 0) {
+            isCartEmpty = true
+        }
     }
-    document.getElementById('card-items').classList.toggle('hidden')
 }
 
 function handleRemoveFromCart () {
@@ -65,11 +69,13 @@ function getMenuHtml() {
 }
 
 function getCartHtml() {
+    let cartHtml = ``
     let cartArrayHtml = ``
+    let cartTotalHtml = ``
 
     cartArray.forEach(function(item) {    
         cartArrayHtml += `
-            <div class="item-inner">
+            <div class="cart-item">
                 <p id="item-name-${item.id}" class="item-name">
                     ${item.name} 
                     <button id="btn-remove-${item.uuid}" class="text-gray btn-remove" data-remove-item="${item.uuid}">remove</button>
@@ -78,26 +84,31 @@ function getCartHtml() {
             </div>
         </div>`
     })
-    return cartArrayHtml
-}
 
-function getCartTotalHtml() {
-    let cartTotalHtml = ``
+    cartHtml += `
+    <div>
+        <h3>Your order</h3>
+    </div>
+    <div>
+        <p>${cartArray.length} item(s) in cart</p>
+        ${cartArrayHtml}
+    </div>
+    <div class="card-checkout">
+        <p>Total price:</p>
+        <p>$${cartTotal}</p>
+    </div>
+    <div>
+        <button class="btn-purchase">Complete order</button>
+    </div>
+    `
 
-    cartArray.forEach(function() {
-        cartTotalHtml = `
-        <div>
-            <p>Total price:</p>
-            <p>${cartTotal}
-        </div>`
-    })
-    return cartTotalHtml
+    return cartHtml
 }
 
 function render() {
     document.getElementById('menu-items').innerHTML = getMenuHtml()
     document.getElementById('card-items').innerHTML = getCartHtml()
-    document.getElementById('card-total').innerHTML = getCartTotalHtml()
+    // document.getElementById('card-total').innerHTML = getCartTotalHtml()
 }
 
 render()
