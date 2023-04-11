@@ -7,8 +7,8 @@ This repository is being auto-deployed via Netlify.
 ## Requirements
 * [] Follow the design specs [Figma](https://www.figma.com/file/Hdgwo69Dym9vVsxbuPbl0h/Mobile-Restaurant-Menu?node-id=0-1)
 * [x] Render the menu options using JavaScript
-* [] Be able to add and/or remove items
-* [] Have a payment modal with compulsory form inputs
+* [x] Be able to add and/or remove items
+* [x] Have a payment modal with compulsory form inputs
 * Stretch goals:
     * [] Change the theme
     * [] Offer a "meal deal" discount
