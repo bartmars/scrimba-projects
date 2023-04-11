@@ -10,11 +10,15 @@ document.addEventListener('click', function(e) {
         handleAddToCart(e.target.dataset.addItem)
     }
     else if (e.target.dataset.removeItem) {
+        console.log(e.target.dataset.removeItem)
         handleRemoveFromCart(e.target.dataset.removeItem)
     }
 })
 
-function handleAddToCart(btnAddItemId) {   
+function handleAddToCart(btnAddItemId) {
+    /*
+
+    */
     const itemObj = menuArray.filter(function(item) {
         return item.id == btnAddItemId
     })[0]
@@ -33,6 +37,23 @@ function handleAddToCart(btnAddItemId) {
     render()
 }
 
+function handleRemoveFromCart (btnRemoveItemId) {
+    /*
+        Description.
+        Function for matching uuid (created via handleAddToCart) 
+        and removing items from cart. Also it will decrement 
+        'cartTotal' variable with item price. 
+    */
+    const itemObj = cartArray.filter(function(item) {
+        return item.uuid == btnRemoveItemId
+    })[0]
+
+    cartArray.pop(btnRemoveItemId)
+    cartTotal -= itemObj.price
+
+    render()
+}
+
 function toggleCartVisibility () {
     if (isCartEmpty) {
         document.getElementById('card-items').classList.toggle('hidden')
@@ -44,9 +65,7 @@ function toggleCartVisibility () {
     }
 }
 
-function handleRemoveFromCart () {
 
-}
 
 function getMenuHtml() {
     let menuHtml = ``
