@@ -9,7 +9,7 @@ This repository is being auto-deployed via Netlify.
 * [x] Render the menu options using JavaScript
 * [x] Be able to add and/or remove items
 * [x] Have a payment modal with compulsory form inputs
-* Stretch goals:
+* Stretch goals (TODO):
     * [] Change the theme
     * [] Offer a "meal deal" discount
     * [] Allow users to rate their experience (1-5 stars)
