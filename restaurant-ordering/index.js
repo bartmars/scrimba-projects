@@ -2,8 +2,7 @@ import { menuArray } from './data.js'
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid'
 
 let cartArray = []
-let isCartEmpty = true
-let cartTotal = 0
+let cartTotal = 0.00
 let fullName = ''
 
 document.addEventListener('click', function(e) {
@@ -14,11 +13,9 @@ document.addEventListener('click', function(e) {
         handleRemoveFromCart(e.target.dataset.removeItem)
     }
     else if (e.target.id === 'btn-checkout') {
-        // handleModalVisibility('enabled')
         handleVisibility('enabled', 'modal')
     }
     else if (e.target.id === 'btn-close') {
-        // handleModalVisibility('disabled')
         handleVisibility('disabled', 'modal')
     }
     else if (e.target.id === 'btn-purchase') {
@@ -96,7 +93,7 @@ function handlePayment(e) {
 
     cartArray = []
     cartTotal = 0
-    
+
     render()
 }
 
