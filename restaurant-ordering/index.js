@@ -3,8 +3,8 @@ import { v4 as uuidv4 } from 'https://jspm.dev/uuid'
 
 const cartArray = []
 let isCartEmpty = true
-let isModalActive = false
 let cartTotal = 0
+let fullName = ''
 
 document.addEventListener('click', function(e) {
     if (e.target.dataset.addItem) {
@@ -14,10 +14,13 @@ document.addEventListener('click', function(e) {
         handleRemoveFromCart(e.target.dataset.removeItem)
     }
     else if (e.target.id === 'btn-checkout') {
-        handleActivateModal()
+        handleModalVisibility('enabled')
     }
     else if (e.target.id === 'btn-close') {
-        handleDeactivateModal()
+        handleModalVisibility('disabled')
+    }
+    else if (e.target.id === 'btn-pay') {
+        handlePayment(e)
     }
 })
 
@@ -59,16 +62,27 @@ function handleRemoveFromCart (btnRemoveItemId) {
     render()
 }
 
-function handleActivateModal() {
-    document.getElementById('modal').style.display = "block"
-    
+function handleModalVisibility(state) {
+    if (state === 'enabled') {
+        document.getElementById('modal').style.display = "block"
+    }
+    else if (state === 'disabled') {
+        document.getElementById('modal').style.display = "none"
+    }
     render()
 }
 
-function handleDeactivateModal() {
-    document.getElementById('modal').style.display = "none"
+function handlePayment(e) {
+    // doesnt work yet
     
+    e.preventDefault()
+    fullName = document.getElementById('fullName').value
+    console.log(fullName)
+
+    getMessageHtml(fullName)
+
     render()
+
 }
 
 function toggleCartVisibility() {
@@ -105,6 +119,17 @@ function getMenuHtml() {
     return menuHtml
 }
 
+function getMessageHtml(name) {
+    let messageHtml = ``
+
+    messageHtml = `
+        <div class="order-complete">
+            <h3>Thanks ${name}, your order is on its way!</h3>
+        </div>`
+
+    return messageHtml
+}
+
 function getCartHtml() {
     let cartHtml = ``
     let cartArrayHtml = ``
@@ -122,20 +147,20 @@ function getCartHtml() {
     })
 
     cartHtml += `
-    <div>
-        <h3>Your order</h3>
-    </div>
-    <div>
-        <p>${cartArray.length} item(s) in cart</p>
-        ${cartArrayHtml}
-    </div>
-    <div class="card-checkout">
-        <p>Total price:</p>
-        <p>$${cartTotal}</p>
-    </div>
-    <div>
-        <button id="btn-checkout" class="btn-purchase">Complete order</button>
-    </div>`
+        <div>
+            <h3>Your order</h3>
+        </div>
+        <div>
+            <p>${cartArray.length} item(s) in cart</p>
+            ${cartArrayHtml}
+        </div>
+        <div class="card-checkout">
+            <p>Total price:</p>
+            <p>$${cartTotal}</p>
+        </div>
+        <div>
+            <button id="btn-checkout" class="btn-purchase">Complete order</button>
+        </div>`
 
     return cartHtml
 }
@@ -149,18 +174,20 @@ function getModalHtml() {
                 <button id="btn-close" class="btn-text-only">X Close</button>
             </div>
             <h2>Enter card details</h2>
-            <form>
-                <input id="name" placeholder="Enter your name" required>
-                <input id="card-number" placeholder="Enter card number" maxlength="16" required>
-                <input id="card-ccv" placeholder="Enter CVV" maxlength="4" required>
-                <button id="btn-purchase" class="btn-purchase" type="submit">Pay</button>
+            <form id="form-order">
+                <input id="fullName" name="fullName" placeholder="Enter your name" required>
+                <input id="card-number" name="card-number" placeholder="Enter card number" maxlength="16" required>
+                <input id="card-ccv" name="card-ccv" placeholder="Enter CVV" maxlength="4" required>
+                <button id="btn-purchase" name="btn-purchase" class="btn-purchase" type="submit">Pay</button>
             </form>
         </div>`
+
     return modalHtml
 }
 
 function render() {
     document.getElementById('menu-items').innerHTML = getMenuHtml()
+    document.getElementById('message').innerHTML = getMessageHtml("Bart")
     document.getElementById('card-items').innerHTML = getCartHtml()
     document.getElementById('modal').innerHTML = getModalHtml()
 }
