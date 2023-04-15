@@ -10,7 +10,7 @@ These are solo projects that I've done for the Frontend Career Path:
 | Basketball Scoreboard | [View](https://basketball-scoreboard.bartmars.dev) |
 | Hometown Homepage     | [View](https://hometown-homepage.bartmars.dev)     |
 
-
+Netlify builds that detect no changes in the Github repo, will cancel builds.
 
 
 
