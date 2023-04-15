@@ -1,7 +1,7 @@
 import { menuArray } from './data.js'
 import { v4 as uuidv4 } from 'https://jspm.dev/uuid'
 
-const cartArray = []
+let cartArray = []
 let isCartEmpty = true
 let cartTotal = 0
 let fullName = ''
@@ -79,11 +79,25 @@ function handleVisibility(state, elementId) {
 }
 
 function handlePayment(e) {
+    /*
+        Function to grab fullName from form, prevents default behaviour 
+        of setting values in URI string. Also disabled the modal and
+        card-items DIVs and enables the message DIV. Resets the 
+        cartArray and cartTotal variables.
+     */
+    fullName = document.getElementById('fullName').value
+
     e.preventDefault()
+
     handleVisibility('disabled', 'modal')
     handleVisibility('disabled', 'cart-items')
-    cartTotal = 0
+   
+    handleVisibility('enabled', 'message')
 
+    cartArray = []
+    cartTotal = 0
+    
+    render()
 }
 
 function getMenuHtml() {
