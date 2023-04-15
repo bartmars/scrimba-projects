@@ -1,0 +1,13 @@
+{
+    "name": "scrimba-projects",
+    "version": "1.0.0",
+    "license": "MIT",
+    "scripts": {
+        "build:hometown-homepage": "",
+        "build:basketball-scoreboard": "",
+        "build:password-generator": "",
+        "build:unit-converter": "",
+        "build:oldagram": "",
+        "build:restaurant-ordering": ""
+    }
+}
