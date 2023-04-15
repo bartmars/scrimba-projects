@@ -14,12 +14,14 @@ document.addEventListener('click', function(e) {
         handleRemoveFromCart(e.target.dataset.removeItem)
     }
     else if (e.target.id === 'btn-checkout') {
-        handleModalVisibility('enabled')
+        // handleModalVisibility('enabled')
+        handleVisibility('enabled', 'modal')
     }
     else if (e.target.id === 'btn-close') {
-        handleModalVisibility('disabled')
+        // handleModalVisibility('disabled')
+        handleVisibility('disabled', 'modal')
     }
-    else if (e.target.id === 'btn-pay') {
+    else if (e.target.id === 'btn-purchase') {
         handlePayment(e)
     }
 })
@@ -41,7 +43,7 @@ function handleAddToCart(btnAddItemId) {
 
     cartTotal += itemObj.price
 
-    toggleCartVisibility()
+    handleVisibility('enabled', 'cart-items')
 
     render()
 }
@@ -59,45 +61,30 @@ function handleRemoveFromCart (btnRemoveItemId) {
     cartArray.pop(btnRemoveItemId)
     cartTotal -= itemObj.price
 
+    if (cartArray.length === 0) {
+        handleVisibility('disabled', 'cart-items')
+    }
+
     render()
 }
 
-function handleModalVisibility(state) {
+function handleVisibility(state, elementId) {
     if (state === 'enabled') {
-        document.getElementById('modal').style.display = "block"
+        document.getElementById(elementId).style.display = "block"
     }
     else if (state === 'disabled') {
-        document.getElementById('modal').style.display = "none"
+        document.getElementById(elementId).style.display = "none"
     }
-    render()
+    render()    
 }
 
 function handlePayment(e) {
-    // doesnt work yet
-    
     e.preventDefault()
-    fullName = document.getElementById('fullName').value
-    console.log(fullName)
-
-    getMessageHtml(fullName)
-
-    render()
+    handleVisibility('disabled', 'modal')
+    handleVisibility('disabled', 'cart-items')
+    cartTotal = 0
 
 }
-
-function toggleCartVisibility() {
-    if (isCartEmpty) {
-        document.getElementById('card-items').classList.toggle('hidden')
-        isCartEmpty = false
-    } 
-    else {
-        if (cartArray.length === 0) {
-            document.getElementById('card-items').classList.toggle('hidden')
-            isCartEmpty = true
-        }
-    }
-}
-
 
 function getMenuHtml() {
     let menuHtml = ``
@@ -187,8 +174,8 @@ function getModalHtml() {
 
 function render() {
     document.getElementById('menu-items').innerHTML = getMenuHtml()
-    document.getElementById('message').innerHTML = getMessageHtml("Bart")
-    document.getElementById('card-items').innerHTML = getCartHtml()
+    document.getElementById('message').innerHTML = getMessageHtml(fullName)
+    document.getElementById('cart-items').innerHTML = getCartHtml()
     document.getElementById('modal').innerHTML = getModalHtml()
 }
 
