@@ -8,6 +8,7 @@
         "build:password-generator": "npm --prefix password-generator run build",
         "build:unit-converter": "npm --prefix unit-converter run build",
         "build:oldagram": "npm --prefix oldagram run build",
-        "build:restaurant-ordering": "npm --prefix restaurant-ordering run build"
+        "build:restaurant-ordering": "npm --prefix restaurant-ordering run build",
+        "build:learning-blog": "npm --prefix learning-blog run build"
     }
 }

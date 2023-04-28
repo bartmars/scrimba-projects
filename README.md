@@ -3,6 +3,7 @@ These are solo projects that I've done for the Frontend Career Path:
 
 | Solo project          | View website                                       |
 |-----------------------|----------------------------------------------------|
+| Learning Blog         | [View](https://learning-blog.bartmars.dev)         |
 | Restaurant Ordering   | [View](https://restaurant-ordering.bartmars.dev)   |
 | Oldagram              | [View](https://oldagram.bartmars.dev)              |
 | Unit Converter        | [View](https://unit-converter.bartmars.dev)        |
