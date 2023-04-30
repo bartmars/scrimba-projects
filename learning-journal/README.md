@@ -1,4 +1,4 @@
-# Learning Blog
+# Learning Journal
 Scrimba Soloproject from the Frontend Developer Career Path, built from scratch.
 
 ## Deployment

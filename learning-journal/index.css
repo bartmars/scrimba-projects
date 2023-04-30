@@ -1,0 +1,118 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Header > Navigation */
+
+
+
+/* Main > Hero*/
+
+.main-content {
+    display: grid;
+    /* TODO: needs more configuration */
+}
+
+.hero-post {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    color: white;
+    text-shadow: #202020 1px 1px;
+    padding: 1em;
+    margin: 0;
+}
+
+.article-preview-hero,
+.article-date-hero,
+.article-title-hero,
+.article-img,
+.article-date,
+.article-title,
+.article-preview,
+.footer p {
+    margin: 0;
+    padding: 0;
+}
+
+.article-image-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.627), rgba(0, 0, 0, 0.6)), url(images/pexels-ken-tomita-389818.jpg);
+    background-size: cover;
+    width: 100%;
+    height: 300px;
+}
+
+.article-title-hero a {
+    color: white;
+    text-decoration: none;
+}
+
+.article-title-hero a:hover,
+.article-title-hero a:focus {
+    text-decoration: underline;
+}
+
+.article-date-hero {
+    font-size: 0.8rem;
+}
+
+
+/* Main > Articles */
+
+.article-listing {
+    display: grid;
+    /* TODO: needs more configuration */
+}
+
+.article-card {
+    padding: 2em;
+}
+
+.article-img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.p-view-more {
+    display: block;
+    padding: 1em;
+    text-align: center;
+    font-weight: 700;
+}
+
+.p-view-more a:hover,
+.p-view-more a:focus,
+.p-view-more a:visited,
+.p-view-more a:active {
+    color: #202020;
+}
+
+.p-view-more a:hover,
+.p-view-more a:focus {
+    text-decoration: none;
+}
+
+/* Footer */
+
+.footer {
+    padding: 2em;
+    text-align: center;
+}
+
+.footer-bg {
+    background-color: #202020;
+    color: #d7d7d7;
+}
+
+.footer-title {
+    font-weight: 700;
+}
+
+.footer-copyright {
+    color: #ececec;
+}
