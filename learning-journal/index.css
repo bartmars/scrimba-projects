@@ -45,7 +45,20 @@ body {
     list-style: none;
 }
 
+/* Main content layout */
+.main-content {
+    display: grid;
+    grid-template-areas: 
+        "hero hero hero"
+        "article article article"
+        "footer footer footer";
+}
+
 /* Main > Hero*/
+
+.section-hero {
+    grid-area: hero;
+}
 
 .hero-post {
     display: flex;
@@ -92,6 +105,8 @@ body {
 
 /* Main > Articles */
 
+
+
 .article-card {
     padding: 2em;
 }
@@ -129,6 +144,7 @@ body {
 
 .footer {
     padding: 2em;
+    margin-top: 5em;
     text-align: center;
 }
 
@@ -173,7 +189,13 @@ body {
     .article-listing {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
         gap: 1em;
+        margin: 1em 0;
+    }
+
+    .article-img {
+        height: 100%;
     }
 }
 @media (min-width: 769px) {
