@@ -20,10 +20,12 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 3.6875em;
 }
 
 .header-logo {
     display: flex;
+    align-items: center;
     gap: 0.5em;
     padding: 0.5em 0 0 1em;
     font-weight: 700;
@@ -44,11 +46,6 @@ body {
 }
 
 /* Main > Hero*/
-
-.main-content {
-    display: grid;
-    /* TODO: needs more configuration */
-}
 
 .hero-post {
     display: flex;
@@ -72,7 +69,7 @@ body {
 }
 
 .article-image-hero {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.627), rgba(0, 0, 0, 0.6)), url(images/pexels-ken-tomita-389818.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.627), rgba(0, 0, 0, 0.6)), url('https://images.pexels.com/photos/245032/pexels-photo-245032.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
     background-size: cover;
     width: 100%;
     height: 300px;
@@ -94,11 +91,6 @@ body {
 
 
 /* Main > Articles */
-
-.article-listing {
-    display: grid;
-    /* TODO: needs more configuration */
-}
 
 .article-card {
     padding: 2em;
@@ -160,4 +152,34 @@ body {
 .footer .footer-external a {
     color: white;
     text-decoration: none;
+}
+
+@media (min-width: 481px) {
+    /* Tablets */
+
+    .header-layout {
+        height: 5.1875em;
+    }
+
+    .article-image-hero {
+        height: 30.5em;
+        background-position: bottom;
+    }
+
+    .article-preview-hero {
+        width: 65%;
+    }
+
+    .article-listing {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 1em;
+    }
+}
+@media (min-width: 769px) {
+    /* Laptops */
+}
+
+@media (min-width: 1025px) {
+    /* Desktops */
 }
