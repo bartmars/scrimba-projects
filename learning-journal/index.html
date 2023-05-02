@@ -4,76 +4,72 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bartmars.dev</title>
+    <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="index2.css">
 </head>
 <body>
-    
-    <header class="header-layout">
-        <div class="header-logo">
-            <img class="header-img" src="images/icons8-dev-32.png">
-            <p>Bart Mars</p>
-        </div>
-        <div>
-            <p>WORK IN PROGRESS</p>
-        </div>
-        <div class="header-navigation">
-            <nav>
+
+    <div class="grid-layout">
+
+        <header class="header">
+            <p class="header__title"><i class="bi bi-code-square"></i>My Learning Journal</p>
+            <nav class="header__nav">
                 <ul>
-                    <li class="text-uppercase">Home</li>
-                    <li class="text-uppercase">About</li>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Me</a></li>
                 </ul>
             </nav>
-        </div>
-    </header>
+        </header>
+        
+        <main class="main">
+            <section class="main__hero">
+                <article class="hero__post">
+                    <img class="hero-post__image" src="images/article-image-hero.png">
+                    <div class="hero__content">
+                        <p class="hero-post__date">May 1, 2023</p>
+                        <h1 class="hero-post__title">Lorem ipsum dolor sit amet consectetur, adipisicing elit</h1>
+                        <p class="hero-post__preview">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptatum voluptate fugiat adipisci tempora ab minus consectetur! Adipisci officiis fugiat quod cum dolor ratione? Eaque, ad sed temporibus nemo natus illo.</p>    
+                    </div>
+                </article>
+            </section>
+            <section class="main__articles">
+                <article class="article">
+                    <img class="article__image" src="images/article-image-01.png" alt="">
+                    <p class="article__date">April 30, 2023</p>
+                    <h3 class="article__title">Nobis possimus, soluta doloremque, voluptate nesciunt illum</h3>
+                    <p class="article__preview">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis possimus, soluta doloremque, voluptate nesciunt illum perferendis cumque voluptatum laboriosam nostrum sunt saepe aliquam maiores odio eaque vero quidem deleniti error!</p>
+                </article>
+                <article class="article">
+                    <img class="article__image" src="images/article-image-02.png" alt="">
+                    <p class="article__date">April 29, 2023</p>
+                    <h3 class="article__title">Illum perferendis cumque voluptatum laboriosam nostrum</h3>
+                    <p class="article__preview">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis possimus, soluta doloremque, voluptate nesciunt illum perferendis cumque voluptatum laboriosam nostrum sunt saepe aliquam maiores odio eaque vero quidem deleniti error!</p>
+                </article>
+                <article class="article">
+                    <img class="article__image" src="images/article-image-03.png" alt="">
+                    <p class="article__date">April 28, 2023</p>
+                    <h3 class="article__title">Consectetur sed perspiciatis modi praesentium</h3>
+                    <p class="article__preview">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis possimus, soluta doloremque, voluptate nesciunt illum perferendis cumque voluptatum laboriosam nostrum sunt saepe aliquam maiores odio eaque vero quidem deleniti error!</p>
+                </article>
+            </section>
+            <section class="view-more">
+                <button>View More</button>
+            </section>
+        </main>
+    
+        <footer class="footer footer-text">
+            <p class="footer-title">My Learning Journal</p>
+            <p>Copyright &copy 2022</p>
+        </footer>
+        
+    </div>
 
-    <main class="main-content">
 
-        <section class="section-hero">
-            <article class="hero-post article-image-hero">
-                <p class="article-date-hero">April 28, 2023</p>
-                <h2 class="article-title-hero"><a href="#0">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</a></h2>
-                <p class="article-preview-hero">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim odio sunt excepturi voluptates quod aliquid soluta id esse perferendis consectetur unde odit aut voluptatem accusantium, magnam dignissimos quaerat numquam quam.</p>
-            </article>
-        </section>
-
-        <section class="article-listing">
-            <article id="blog-one" class="article-card">
-                <img class="article-img" src="https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
-                <p class="article-date">April 27, 2023</p>
-                <h3 class="article-title">Blog one</h3>
-                <p class="article-preview">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magnam, omnis unde voluptatem vitae dolorem esse ducimus, fugiat optio totam id qui commodi autem error perspiciatis sit hic ipsam vero repellendus.</p>
-            </article>
-            <article id="blog-two" class="article-card">
-                <img class="article-img" src="https://images.pexels.com/photos/3608056/pexels-photo-3608056.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
-                <p class="article-date">April 26, 2023</p>
-                <h3 class="article-title">Blog two</h3>
-                <p class="article-preview">Lorem, ipsum dolor sit amet consectetur adipisicing elit. In asperiores neque aspernatur eaque vitae porro voluptates. Veritatis, cum! Eum nostrum distinctio nemo exercitationem debitis saepe expedita! Aliquid, magni? Voluptatum, nobis.</p>
-            </article>
-            <article id="blog-three" class="article-card">
-                <img class="article-img" src="https://images.pexels.com/photos/699122/pexels-photo-699122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2">
-                <p class="article-date">April 26, 2023</p>
-                <h3 class="article-title">Hello World</h3>
-                <p class="article-preview">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius porro id neque quod ea ad mollitia quam eaque, fuga ducimus. Illo quo at reiciendis ducimus similique, itaque exercitationem eius vitae!</p>
-            </article>
-            <p class="p-view-more">
-                <a href="#0">View More</a>
-            </p>
-        </section>
-    </main>
-
-    <footer class="footer footer-bg">
-        <div class="footer-information">
-            <p class="footer-title">BartMars.dev</p>
-            <p class="footer-copyright">Copyright &copy 2023</p>
-        </div>
-        <div class="footer-external">
-            <p><a target="_blank" href="https://icons8.com">icons8</a> - <a target="_blank" href="https://www.pexels.com">Pexels</a></p>
-        </div>
-    </footer>
 
 </body>
 </html>
+
