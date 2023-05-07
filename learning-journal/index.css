@@ -62,7 +62,7 @@ body {
 
 .header__nav a:visited,
 .header__nav a:active {
-    color: none;
+    color: #090909;
     text-decoration: none;
 }
 
@@ -136,8 +136,6 @@ body {
     object-fit: cover;
 }
 
-
-
 .main-articles,
 .view-more,
 .footer {
@@ -174,6 +172,23 @@ body {
 
 .article__title {
     font-size: 1.5rem;
+}
+
+.main-post,
+.recent-posts {
+    padding: 1em;
+}
+
+.main-post__title {
+    font-size: 2rem;
+}
+
+.main-post__subtitle {
+    font-weight: 600;
+}
+
+.main-post__image {
+    width: 100%;
 }
 
 .main__view-more {
@@ -246,7 +261,6 @@ body {
         display: flex;
         flex-direction: column;
         align-items: center;
-        background: whitesmoke;
     }
 
     .container {
