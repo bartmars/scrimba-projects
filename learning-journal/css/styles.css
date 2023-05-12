@@ -233,7 +233,6 @@ body {
 .subtitle {
     font-weight: 700;
     font-size: 1rem;
-    text-align: center;
 }
 
 .footer-text {
@@ -253,6 +252,11 @@ body {
     font-weight: 700;
 }
 
+/* Utility */
+
+.text-centered {
+    text-align: center;
+}
 
 /* Media Query for minimum screensize of 480px*/
 @media (min-width: 30em) {}
