@@ -264,6 +264,10 @@ body {
     text-align: center;
 }
 
+.hidden {
+    display: none;
+}
+
 /* Media Query for minimum screensize of 480px*/
 @media (min-width: 30em) {
     .header {
@@ -314,5 +318,9 @@ body {
         align-items: center;
         display: flex;
         gap: 2em;
+    }
+
+    .view-more {
+        margin-top: 2em;
     }
 }

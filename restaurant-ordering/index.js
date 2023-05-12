@@ -88,7 +88,6 @@ function handlePayment(e) {
 
     handleVisibility('disabled', 'modal')
     handleVisibility('disabled', 'cart-items')
-   
     handleVisibility('enabled', 'message')
 
     cartArray = []
