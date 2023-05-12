@@ -10,10 +10,10 @@ This repository is being auto-deployed via Netlify.
 ## Requirements
 * [x] Build each page from scratch 
 * [] Make all pages responsive
-	* [] Relative units
-	* [] Mobile-first design
+	* [x] Relative units
+	* [x] Mobile-first design
 	* [] Media queries
-	* [] Viewport meta tag
+	* [x] Viewport meta tag
 * Stretch goals
 	* [] Make it your own
 	* [] Add custom images
