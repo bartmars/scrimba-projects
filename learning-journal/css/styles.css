@@ -270,6 +270,10 @@ body {
         height: 5.1875em;
     }
 
+    .header-navigation {
+        padding-right: 2em;
+    }
+
     .header-logo {
         padding-left: 2em;
     }

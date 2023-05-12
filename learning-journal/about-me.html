@@ -28,12 +28,17 @@
     <main class="main">
         <section>
             <article class="main-article">
-                <img src="images/profile-image.png" alt="my fake profile image">
-                <h2 class="article-title-big">Hi there! My name is Roku and welcome to my learning journal.</h2>
-                <p>
-                    After several months of learning in the Frontend Developer Career Path, I've made the big jump over to the 
-                    Bootcamp to get expert code reviews of my Solo Projects projects and meet like-minded peers.
-                </p>
+                <div class="about-header">
+                    <img src="images/profile-image.png" alt="my fake profile image">
+                    <div class="about-header-text">
+                        <h2 class="about-header-title">Hi there! My name is Roku and welcome to my learning journal.</h2>
+                        <p>
+                            After several months of learning in the Frontend Developer Career Path, I've made the big jump over to the 
+                            Bootcamp to get expert code reviews of my Solo Projects projects and meet like-minded peers.
+                        </p>
+                    </div>
+                </div>
+
                 <h3 class="subtitle">How I stay committed to learning</h3>
                 <p>
                     I like to think of myself as a lifelong learner. I used to spend hours and hours learning, then try to create 
@@ -55,9 +60,10 @@
                 </p>
             </article>
         </section>
-        <section class="articles-listing">
+
+        <section id="recent-articles">
             <h2 class="subtitle text-centered">Recent posts</h2>
-            <div class="recent-articles">
+            <div class="articles-listing">
                 <article class="blog-article" id="article-01">
                     <img class="article-image" src="images/article-image-01.png">
                     <p class="article-date">July 23, 2022</p>
