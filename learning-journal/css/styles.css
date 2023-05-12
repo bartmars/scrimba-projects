@@ -92,6 +92,14 @@ body {
     color: #202020;
 }
 
+.featured-article a,
+.featured-article a:focus,
+.featured-article a:hover,
+.featured-article a:visited,
+.featured-article a:active {
+    color: white;
+}
+
 
 /* alignment */
 
