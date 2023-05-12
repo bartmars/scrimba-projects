@@ -205,6 +205,12 @@ body {
     width: 100%;
 }
 
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+
 .main__view-more {
     text-align: center;
     padding: 1em 0 3em 0;
@@ -239,6 +245,8 @@ body {
 .footer__copyright {
     color: #d7d7d7;
 }
+
+
 
 /* Minimum screensize of 480px */
 @media (min-width: 30em) {

@@ -1,0 +1,170 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    color: #202020;
+    font-family: 'Source Sans Pro', sans-serif;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header header header"
+        "main main main"
+        "main main main"
+        "footer footer footer";
+    margin: 0;
+    /* min-height: 100vh;
+    min-height: 100dvh; */
+}
+
+/* layout */
+
+.body,
+.hero-post {
+    display: grid;
+}
+
+.header {
+    align-items: center;
+    grid-area: header;
+    justify-content: space-between;
+}
+
+.hero-section {
+    grid-area: main;
+    margin-bottom: 1em;
+}
+
+.featured-article {
+    display: grid;
+    grid-template-areas: 
+        "stack";
+    place-items: end;
+}
+
+.featured-article > * {
+    grid-area: stack;
+}
+
+.featured-article-content {
+    color: white;
+    padding: 0 1em;
+    text-shadow: 1px 1px 1px #202020;
+    padding-bottom: 1em;
+}
+
+.featured-article-content > * {
+    margin: 0;
+    padding: 0.2em 0;
+}
+
+.footer {
+    background: #202020;
+    color: #d7d7d7;
+    flex-direction: column;
+    grid-area: footer;
+}
+
+/* hyperlink styling */
+
+.header-navigation a,
+.main a,
+.footer a {
+    color: #202020;
+    text-decoration: none;
+}
+
+.header-navigation a:focus,
+.header-navigation a:hover,
+.main a:focus,
+.main a:hover,
+.footer a:focus,
+.footer a:hover {
+    text-decoration: underline;
+}
+
+.header-navigation a:active,
+.header-navigation a:visited,
+.main a:active,
+.main a:visited,
+.footer a:active,
+.footer a:visited {
+    color: #202020;
+}
+
+
+/* alignment */
+
+.header,
+.header-logo,
+.header-navigation ul,
+.footer {
+    display: flex;
+}
+
+.header {
+    height: 3.6875em;
+}
+
+.header-logo {
+    align-items: center;
+    display: flex;
+    gap: 0.2em;
+    padding-left: 1em
+}
+
+.header-title {
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.header-navigation ul {
+    gap: 1em;
+    list-style-type: none;
+    margin-right: 1em;
+}
+
+.header-navigation li {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+
+/* sections */
+
+.header-navigation li,
+.article-date,
+.article-date-hero {
+    text-transform: uppercase;
+}
+
+.article-image,
+.article-image-hero {
+    height: 300px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.article-image-hero {
+    height: 300px;
+    object-fit: cover;
+}
+
+.article-title,
+.article-title-hero {
+    font-weight: 700;
+}
+
+.article-title {
+    font-size: 1.5rem;
+}
+
+.article-title-hero {
+    font-size: 2rem;
+}
+
+
+
+
+
+/* Media Query for minimum screensize of 480px*/
+@media (min-width: 30em) {}
