@@ -131,6 +131,10 @@ body {
 
 /* sections */
 
+.article-listing {
+    padding-inline: 1em;
+}
+
 .header-navigation li,
 .article-date,
 .article-date-hero {
@@ -161,7 +165,6 @@ body {
 .article-title-hero {
     font-size: 2rem;
 }
-
 
 
 

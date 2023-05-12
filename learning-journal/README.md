@@ -8,7 +8,7 @@ This repository is being auto-deployed via Netlify.
 [Figma Design](https://www.figma.com/file/hE5klIn1AEQ9XWZWmurs7y/Learning-Journal%2FBlog)
 
 ## Requirements
-* [] Build each page from scratch 
+* [x] Build each page from scratch 
 * [] Make all pages responsive
 	* [] Relative units
 	* [] Mobile-first design
