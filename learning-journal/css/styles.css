@@ -146,11 +146,16 @@ body {
 }
 
 .blog-article {
-    padding-block: 1em;
+    padding-block: 1.5em;
+}
+
+.blog-article:last-of-type {
+    padding-bottom: 3em;
 }
 
 .main-article {
     padding-block: 2em;
+    padding: 2em 1.25em;
 }
 
 .header-navigation li,
@@ -213,7 +218,7 @@ body {
 .view-more {
     display: flex;
     justify-content: center;
-    padding: 1.25em 0 2.75em 0;
+    padding-bottom: 2.75em;
 }
 
 .view-more-btn {
@@ -223,6 +228,12 @@ body {
     font-size: 1rem;
     font-weight: 700;
     text-decoration: underline;
+}
+
+.subtitle {
+    font-weight: 700;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .footer-text {
