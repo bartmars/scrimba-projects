@@ -324,3 +324,15 @@ body {
         margin-top: 2em;
     }
 }
+
+/* Media Query for minimum screensize of 480px*/
+@media (min-width: 64em) {
+    .container {
+        width: 55%;
+    }
+
+    .articles-listing {
+        width: 55%;
+        margin: 0 auto;
+    }
+}
