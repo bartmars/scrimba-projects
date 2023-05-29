@@ -1,21 +1,14 @@
-# co0e64371a0120af20b5f91e9
+# Tindog
+Scrimba Soloproject from the Frontend Developer Career Path, built from scratch.
 
-Quick start:
+## Deployment
+This repository is being auto-deployed via Netlify.
 
-```
-$ npm install
-$ npm start
-````
+## Design
+[Figma Design](https://www.figma.com/file/LdlksbT0QYLpRlHrOlKDuc/Tinder-for-Dogs?type=design&node-id=0-1&t=ewh0sJ0QhU5zj2e2-0)
 
-Head over to https://vitejs.dev/ to learn more about using vite
-## About Scrimba
+## Requirements
 
-At Scrimba our goal is to create the best possible coding school at the cost of a gym membership! 💜
-If we succeed with this, it will give anyone who wants to become a software developer a realistic shot at succeeding, regardless of where they live and the size of their wallets 🎉
-The Frontend Developer Career Path aims to teach you everything you need to become a Junior Developer, or you could take a deep-dive with one of our advanced courses 🚀
-
-- [Our courses](https://scrimba.com/allcourses)
-- [The Frontend Career Path](https://scrimba.com/learn/frontend)
-- [Become a Scrimba Pro member](https://scrimba.com/pricing)
-
-Happy Coding!
+* [] Use Javascript classes
+* [] Use modules (import/export)
+* [] After clicking a pause of 1.5 seconds displays ‘like’ or ‘nope’

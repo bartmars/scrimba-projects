@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.container {
+    max-width: 550px;
+    margin: auto auto;
+}
+
+.header {
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+
+.profile-img,
+.chat-img {
+    width: 2.125em;
+    height: 2.125em;
+}
+
+.logo-img {
+    width: 5.25em;
+    height: 2.625em;
+}
+
+.main {
+    background: linear-gradient(white, rgba(0, 0, 0, 0.02));
+}
+
+.featured-dog {
+    display: grid;
+    grid-template-areas: "stacked";
+    place-items: end left;
+}
+
+.dog-photo {
+    width: 100%;
+    border-radius: 1em;
+}
+
+.featured-dog > * {
+    color: white;
+    grid-area: stacked;
+}
+
+.featured-dog div {
+    padding: 1em;
+}
+
+.featured-dog div h1,
+.featured-dog div p {
+    margin: 0;
+}
+
+.featured-title {
+    color: #f8f8f8;
+    font-size: 2rem;
+}
+
+.featured-subtitle {
+    color: #b7b7b7;
+    font-size: 1.5rem;
+}
+
+.buttons {
+    display: flex;
+    gap: 2em;
+    justify-content: center;
+    margin: 0.5em;
+    padding: 1em;
+}
+
+.btn {
+    background: white;
+    border: white;
+    border-radius: 50%;
+    box-shadow: 1px 3px 10px #d7d7d7;
+}
+
+.btn-img {
+    padding: 25px;
+}

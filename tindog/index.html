@@ -5,8 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tindog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    
+
+    <div class="container">
+        <header class="header">
+            <img class="profile-img" src="images/icon-profile.png">
+            <img class="logo-img" src="images/logo.png">
+            <img class="chat-img" src="images/icon-chat.png">
+        </header>
+        
+        <main class="main">
+            <section id="dog-photo" class="featured-dog">
+                <img class="dog-photo" src="images/dog-teddy.jpg" alt="A chihauhau with a collor staring at a camera">
+                <div>
+                    <h1 class="featured-title">Teddy, 30</h1>
+                    <p class="featured-subtitle">How you doin?</p>
+                </div>
+            </section>
+            <section id="nope-like">
+                <div class="buttons">
+                    <button class="btn"><img class="btn-img" src="images/icon-cross.png" alt="A red cross"></button>
+                    <button class="btn"><img class="btn-img" src="images/icon-heart.png" alt="A green heart"></button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="index.js" type="module"></script>
 </body>
 </html>
