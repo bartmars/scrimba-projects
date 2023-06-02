@@ -9,6 +9,6 @@ This repository is being auto-deployed via Netlify.
 
 ## Requirements
 
-* [] Use Javascript classes
-* [] Use modules (import/export)
+* [x] Use Javascript classes
+* [x] Use modules (import/export)
 * [] After clicking a pause of 1.5 seconds displays ‘like’ or ‘nope’
