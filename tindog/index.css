@@ -33,10 +33,12 @@ body {
 
 .main {
     background: linear-gradient(white, rgba(0, 0, 0, 0.02));
+    height: 100dvh;
 }
 
 .featured-dog {
     display: grid;
+    /* position: relative; */
     grid-template-areas: "stacked";
     place-items: end left;
 }
@@ -70,6 +72,10 @@ body {
     font-size: 1.5rem;
 }
 
+.badges {
+        place-items: start left;
+}
+
 .buttons {
     display: flex;
     gap: 2em;
@@ -79,16 +85,51 @@ body {
 }
 
 .btn {
-    background: white;
-    border: white;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: none;
     border-radius: 50%;
     box-shadow: 1px 3px 10px #d7d7d7;
+    height: 5.625em;
+    width: 5.625em;
+    margin: 25px;
 }
 
-.btn-img {
-    padding: 25px;
+.nope-btn {
+    background-image: url('images/icon-cross.png');
 }
 
-/* .hidden {
-    display: none;
-} */
+.nope-btn:hover,
+.nope-btn:focus {
+    background-color: #ffe7ef;
+}
+
+.like-btn {
+    background-image: url('images/icon-heart.png')
+}
+
+.like-btn:hover,
+.like-btn:focus {
+    background-color: #dbfff4;
+}
+
+.like-or-not {
+    position: relative;
+}
+
+.badge {
+    width: 14.375em;
+    rotate: -35deg;
+    position: absolute;
+    top: 55px;
+    left: 10px;
+}
+
+.hidden {
+    display: none
+}
+
+.centered-text {
+    text-align: center;
+}
