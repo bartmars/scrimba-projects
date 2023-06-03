@@ -142,4 +142,8 @@ body {
     .featured-dog div {
         padding: 2em;
     }
+
+    .container {
+        width: 95%;
+    }
 }
