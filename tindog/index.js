@@ -64,16 +64,26 @@ function getNextProfile(hasBeenLikedBool, hasBeenSwipedBool) {
         }
     }
     else {
+        setTimeout(() => {
         dogsLikedArray.forEach((dog) => {
             dogToContact += `${dog} `
         })
-        document.getElementById('main').innerHTML = `
+        if (dogToContact.length) {
+            document.getElementById('main').innerHTML = `
             <div class="centered-text">
                 <h1>No more dogs in your area 🐶</h1>
                 <p>But you could try to contact:</p>
                 <p>${dogToContact}</p>
             </div>`
-    } 
+        }
+        else {
+            document.getElementById('main').innerHTML = `
+            <div class="centered-text">
+                <h1>No more dogs in your area 🐶</h1>
+            </div>`                        
+            }
+        }, 1500);
+    }
 }
 
 function render() {
