@@ -38,7 +38,6 @@ body {
 
 .featured-dog {
     display: grid;
-    /* position: relative; */
     grid-template-areas: "stacked";
     place-items: end left;
 }
@@ -73,7 +72,7 @@ body {
 }
 
 .badges {
-        place-items: start left;
+    place-items: start left;
 }
 
 .buttons {
@@ -132,4 +131,15 @@ body {
 
 .centered-text {
     text-align: center;
+}
+
+@media (max-width: 30em) {
+    .dog-photo {
+        width: 90%;
+        margin: auto;
+    }
+
+    .featured-dog div {
+        padding: 2em;
+    }
 }
