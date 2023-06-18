@@ -3,6 +3,7 @@ These are solo projects that I've done for the Frontend Career Path:
 
 | Solo project          | View website                                       |
 |-----------------------|----------------------------------------------------|
+| Color Picker          | [View](https://color-picker.bartmars.dev)          |
 | Tindog                | [View](https://tindog.bartmars.dev)                |
 | Learning Blog         | [View](https://learning-blog.bartmars.dev)         |
 | Restaurant Ordering   | [View](https://restaurant-ordering.bartmars.dev)   |
@@ -12,8 +13,6 @@ These are solo projects that I've done for the Frontend Career Path:
 | Basketball Scoreboard | [View](https://basketball-scoreboard.bartmars.dev) |
 | Hometown Homepage     | [View](https://hometown-homepage.bartmars.dev)     |
 
-Netlify builds that detect no changes in the Github repo, will cancel builds.
 
 # TODO
-
 * Fix project Oldagram stretch goals
