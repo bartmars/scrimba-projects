@@ -8,43 +8,19 @@
 </head>
 <body>
 
-
     <main class="container">
         <header>
-            <div class="options">
-                <input type="color" value="#F55A5A">
-                <select>
-                    <option>Monochrome</option>
-                </select>
-                <button type="button">Get color scheme</button>
-            </div>
+            <form id="color-picker-form" class="options">
+                <input id="color-picker" type="color" value="#F55A5A">
+                <select id="select-scheme"></select>
+                <button id="get-scheme-btn" type="submit">Get color scheme</button>
+            </form>
         </header>
     
-        <div class="color-scheme">
-            <div class="color-layout">
-                <div id="color-1" class="color"></div>
-                <p>#F55A5A</p>
-            </div>
-            <div class="color-layout">
-                <div id="color-2" class="color"></div>
-                <p>#2B283A</p>
-            </div>
-            <div class="color-layout">
-                <div id="color-3" class="color"></div>
-                <p>#FBF3AB</p>
-            </div>
-            <div class="color-layout">
-                <div id="color-4" class="color"></div>
-                <p>#AAD1B6</p>
-            </div>
-            <div class="color-layout">
-                <div id="color-5" class="color"></div>
-                <p>#A626D3</p>
-            </div>
-        </div>
+        <div id="color-scheme" class="color-scheme"></div>
     </main>
 
-    <script type="index.js" type="module"></script>
+    <script src="index.js" type="module"></script>
     
 </body>
 </html>

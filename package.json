@@ -10,5 +10,8 @@
         "build:oldagram": "npm --prefix oldagram run build",
         "build:restaurant-ordering": "npm --prefix restaurant-ordering run build",
         "build:learning-blog": "npm --prefix learning-blog run build"
+    },
+    "dependencies": {
+        "node-fetch": "^3.3.1"
     }
 }
