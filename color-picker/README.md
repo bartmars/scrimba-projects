@@ -9,7 +9,6 @@ This repository is being auto-deployed via Netlify.
 
 ## Requirements
 
-Requirements
 * [x] Choose “seed color” with an <input type=“color” />
 * [x] Choose color scheme mode in a <select> box
 * [x] Clicking button makes request to The Color API to get a color scheme
