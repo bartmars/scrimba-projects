@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+.container {
+    max-width: 34.375rem;
+    margin: auto;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75) ), url("https://images.unsplash.com/photo-1628432136678-43ff9be34064?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1326&q=80");
+    background-position: 0rem -12rem;
+    background-size: cover;
+    width: 34.375rem;
+    height: 13rem;
+    flex-shrink: 0;
+    color: white;
+    padding: 1.875em;
+}
+
+.title {
+    font-size: 2.6875rem;
+}
+
+.header-link {
+    color: white;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 700;
+}
+
+.header-link:focus,
+.header-link:hover {
+    text-decoration: underline;
+}
+
+form {
+    display: flex;
+    position: relative;
+    top: -15px;
+    padding: 0em 1.875em;
+}
+
+form > input {
+    padding: 0.625em 2.1875em;
+    background-image: url('images/icon-4.png');
+    background-size: 20px;
+    background-position: 5px 5px;
+    background-repeat: no-repeat;
+    font-family: inherit;
+    width: 100%;
+    border: 1px solid #D1D5DB;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+form > button {
+    font-family: inherit;
+    width: 7.5em;
+    border: 1px solid #D1D5DB;
+    background-color: #F9FAFB;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+div#movie-results {
+    background-image: url('images/no-data-initial.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
