@@ -54,8 +54,8 @@ form {
 form > input {
     padding: 0.625em 2.1875em;
     background-image: url('images/icon-4.png');
-    background-size: 20px;
-    background-position: 5px 5px;
+    background-size: 15px;
+    background-position: 7px 8px;
     background-repeat: no-repeat;
     font-family: inherit;
     width: 100%;
@@ -77,8 +77,77 @@ div#movie-results {
     background-image: url('images/no-data-initial.png');
     background-position: center;
     background-repeat: no-repeat;
-    height: 60vh;
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+.item {
+    display: flex;
+    gap: 1em;
+    border-bottom: 1.5px solid #E5E7EB;
+    align-items: center;
+    padding: 1em 2.1875em;
+}
+
+.title-500 {
+    font-size: 1.125rem;
+    font-weight: 500;
+}
+
+.smaller-text-400 {
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
+.small-text-400 {
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.item > img {
+    height: 9.25em;
+    width: 6.25em;
+}
+
+.item-header {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.item-header h2,
+.item-details p {
+    margin: 0;
+}
+
+.item-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-watchlist {
+    display: flex;
+    align-items: center;
+}
+
+.add-to-watchlist-btn {
+    background: none;
+    border: none;
+    height: 2em;
+    width: 2em;
+    padding: 0;
+}
+
+.add-to-watchlist-btn > img {
+    width: 100%;
+}
+
+.plot {
+    color: #6B7280;
+}
+
+.plot > span {
+    color: black;
 }
