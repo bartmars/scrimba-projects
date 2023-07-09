@@ -51,6 +51,7 @@ async function getMovie(movieTitle) {
                 // console.log(movie)
 
                 /* TODO: figure out how to get watchlistBtn to be clickable for every movie */
+                /* TODO: figure out how to filter duplicate movies in localStorage */
 
                 if (localStorage.getItem('movies')) {
                     let watchlistArray = JSON.parse(localStorage.getItem('movies'))
