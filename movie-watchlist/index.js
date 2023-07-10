@@ -22,7 +22,11 @@ document.addEventListener('click', async e => {
         try {
             const outerResponse = await fetch(`http://www.omdbapi.com/?s=${searchTerm}&apikey=ead28c58&t`)
             const outerData = await outerResponse.json()
-            // console.log('outerData:', outerData)
+            console.log('outerData:', outerData)
+
+            // if (Response.error) {
+            //     throw new Error(`No movie found! ${response.status}`)
+            // }
 
             for (let i = 0; i < outerData.Search.length; i++)  {
                 const innerResponse = await fetch(`http://www.omdbapi.com/?i=${outerData.Search[i].imdbID}&apikey=ead28c58&t`)
@@ -39,6 +43,7 @@ document.addEventListener('click', async e => {
             // console.log('movieArrayHtml: ', movieArrayHtml)
             movieResults.style.background = 'none'
             document.getElementById('movie-results').innerHTML = movieArrayHtml  
+
         } catch (e) {
             console.error(e);
         } finally {
