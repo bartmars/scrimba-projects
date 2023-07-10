@@ -1,79 +1,90 @@
-const searchBtn = document.getElementById('search-btn')
-const searchInput = document.getElementById('search-input')
 const movieResults = document.getElementById('movie-results')
-
-let searchTerm = ''
-let html = ''
-let movieArrayHtml = ''
 let movieArray = []
+let movieArrayHtml = ''
+let watchlistArray = []
+let html = ''
 
-searchInput.addEventListener('change', () => {
-        searchTerm = searchInput.value
-        searchInput.value = ""
-        return searchTerm
-})
+document.addEventListener('click', async e => {
+    /*
+        - Grab search-input.value and use it for outerResponse to get imdbID
+        - Grab outerData and use it for innerData fetch, for length of returned response
+        - Push innerData to movieArray for rendering of HTML divs
+        - For every item, render HTML layout div with function 'renderMovieHtml()' and place in 'movieArrayHtml'
+        - Remove background image before showing movie list
+        - Render movie list
+     */
+    if (e.target.id === 'search-btn') {
+        e.preventDefault()
 
-searchBtn.addEventListener('click', async (e) => {
-    e.preventDefault()
-    getMovie(searchTerm)
-})
+        let searchTerm = document.getElementById('search-input').value
+        // console.log('searchterm: ', searchTerm)
 
-async function getMovie(movieTitle) {
-    const movieResponse = await fetch(`http://www.omdbapi.com/?s=${movieTitle}&apikey=ead28c58&t`)
-    const data = await movieResponse.json()
-    console.log(data.Search[0])
+        try {
+            const outerResponse = await fetch(`http://www.omdbapi.com/?s=${searchTerm}&apikey=ead28c58&t`)
+            const outerData = await outerResponse.json()
+            // console.log('outerData:', outerData)
 
-    for (let i = 0; i < data.Search.length; i++) {
-        const imdbIdResponse = await fetch(`http://www.omdbapi.com/?i=${data.Search[i].imdbID}&apikey=ead28c58&t`)
-        const imdbIdData = await imdbIdResponse.json()
-        console.log(imdbIdData)
-        movieArray.push(imdbIdData)
-        // console.log(movieArray)
-        movieArray.forEach(item => {
-            movieArrayHtml = (getMovieListHtml(item))
-            // console.log(movieArrayHtml)
-        });
-        movieResults.innerHTML += movieArrayHtml
-
-        const watchlistBtn = document.getElementById('add-to-watchlist-btn')
-
-        watchlistBtn.addEventListener('click', (e) => {
-            if (e.target.dataset.imdbId) {
-                let movie = {
-                    "imdbID": imdbIdData.imdbID,
-                    "Poster": imdbIdData.Poster,
-                    "Title": imdbIdData.Title,
-                    "imdbRating": imdbIdData.imdbRating,
-                    "Runtime": imdbIdData.Runtime,
-                    "Genre": imdbIdData.Genre,
-                    "Plot": imdbIdData.Plot,
-                }
-                // console.log(movie)
-
-                /* TODO: figure out how to get watchlistBtn to be clickable for every movie */
-                /* TODO: figure out how to filter duplicate movies in localStorage */
-
-                if (localStorage.getItem('movies')) {
-                    let watchlistArray = JSON.parse(localStorage.getItem('movies'))
-                    watchlistArray.push(movie)
-                    localStorage.setItem('movies', JSON.stringify(watchlistArray))
-                    console.log('IF:', watchlistArray)
-                }
-                else {
-                    let watchlistArray = []
-                    watchlistArray.push(movie)
-                    localStorage.setItem('movies', JSON.stringify(watchlistArray))
-                    console.log('ELSE:', watchlistArray)
-                }
-
+            for (let i = 0; i < outerData.Search.length; i++)  {
+                const innerResponse = await fetch(`http://www.omdbapi.com/?i=${outerData.Search[i].imdbID}&apikey=ead28c58&t`)
+                const innerData = await innerResponse.json()
+                // console.log('innerData: ', innerData)
+        
+                movieArray.push(innerData)
             }
-        })           
+            // console.log('movieArray: ', movieArray)
+        
+            movieArray.forEach(item => {
+                movieArrayHtml += renderMovieHtml(item)
+            })
+            // console.log('movieArrayHtml: ', movieArrayHtml)
+            movieResults.style.background = 'none'
+            document.getElementById('movie-results').innerHTML = movieArrayHtml  
+        } catch (e) {
+            console.error(e);
+        } finally {
+            errorFindingMovieHtml()
+        }
     }
+    else if (e.target.dataset.add) {
+        /*
+            - When adding to watchlist button is clicked, push it to 'watchlistArray' and store imdbID in existing localStorage,
+              otherwise create it
+         */
+
+        // console.log('Returned movie: ', e.target.dataset.add)
+        watchlistArray.push(e.target.dataset.add)
+        localStorage.setItem('movies', JSON.stringify(watchlistArray))
+    }
+    else if (e.target.dataset.del) {
+        let watchlistItems = JSON.parse(localStorage.getItem('movies'))
+        watchlistItems = watchlistArray.filter(item => {
+            return item !== e.target.dataset.del
+        })
+        watchlistArray = watchlistItems
+        localStorage.setItem('movies', JSON.stringify(watchlistItems))
+    }
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    const watchlistItems = JSON.parse(localStorage.getItem('movies'))
+    if (!watchlistItems) {
+        return document.getElementById('movie-results').innerHTML = `
+            <h2 class="error-text-700">No watchlist found.</h2>
+        `
+    }
+    watchlistItems.forEach(item => {
+        renderMovieHtml(item)
+    })
+    
+})
+
+async function requestMovie(item) {
+    const innerResponse = await fetch(`http://www.omdbapi.com/?i=${item}&apikey=ead28c58&t`)
+    return innerData = await innerResponse.json()
 }
 
-function getMovieListHtml(movie) {
-    const { Poster, Title, imdbRating, Runtime, Genre, imdbID, Plot } = movie
-    movieResults.style.background = 'none'
+function renderMovieHtml(movie) {
+    const { imdbID, imdbRating, Poster, Title, Runtime, Genre, Plot } = movie
     return html = `
         <div class="item">
             <img src="${Poster}" alt=${Title}>
@@ -86,13 +97,26 @@ function getMovieListHtml(movie) {
                     <p class="small-text-400">${Runtime}</p>
                     <p class="small-text-400">${Genre}</p>
                     <div class="item-watchlist">
-                        <button id="add-to-watchlist-btn" class="add-to-watchlist-btn">
-                            <img data-imdb-id="${imdbID}" src="images/icon-1.png" alt="add to watchlist button">
-                        </button>
-                        <p class="small-text-400">Watchlist</p>
+                        <button id="add-to-watchlist-btn" class="add-to-watchlist-btn" data-add="${imdbID}" type="button">Add</button>
+                        <button id="del-from-watchlist-btn" class="add-to-watchlist-btn" data-del="${imdbID}" type="button">Del</button>
+                        <p class="small-text-400">#</p>
                     </div>
                 </div>
                 <p class="plot smaller-text-400">${Plot}</p>
             </div>
-        </div>`
+        </div>`            
 }
+
+function errorFindingMovieHtml() {
+    return html = `
+        <h2 class="error-text-700">Unable to find what you're looking for. Please try another search.</h2>
+    `
+}
+
+function errorFindingMovieHtml() {
+    return html = `
+        <h2 class="error-text-700">Unable to find what you're looking for. Please try another search.</h2>
+    `
+}
+
+

@@ -143,6 +143,7 @@ div#movie-results {
 
 .add-to-watchlist-btn > img {
     width: 100%;
+    cursor: grab; 
 }
 
 .plot {
