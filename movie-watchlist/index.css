@@ -81,6 +81,7 @@ div#movie-results {
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    height: 80vh;
 }
 
 .item {
@@ -152,4 +153,10 @@ div#movie-results {
 
 .plot > span {
     color: black;
+}
+
+.error-text-700 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #DFDDDD;
 }
