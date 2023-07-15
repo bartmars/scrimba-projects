@@ -15,6 +15,7 @@ export function renderMovieHtml(movie) {
                     <p class="small-text-400">${Genre}</p>
                     <div class="item-watchlist">
                         <button id="add-to-watchlist-btn" class="add-to-watchlist-btn" data-add="${imdbID}" type="button">Add</button>
+                        <button id="add-to-watchlist-btn" class="add-to-watchlist-btn" data-del="${imdbID}" type="button">DEL</button>
                         <p class="small-text-400">#</p>
                     </div>
                 </div>

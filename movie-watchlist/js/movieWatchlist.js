@@ -7,9 +7,12 @@ export function addMovieToWatchList(movie) {
 
 export function deleteMovieFromWatchlist(movie) {
     let watchlistItems = JSON.parse(localStorage.getItem('movies'))
+    watchlistArray.push(movie)
+
     watchlistItems = watchlistArray.filter(movie => {
-        return movie !== e.target.dataset.del
+        return movie !== watchlistArray[0]
     })
     watchlistArray = watchlistItems
     localStorage.setItem('movies', JSON.stringify(watchlistItems))
+
 }
