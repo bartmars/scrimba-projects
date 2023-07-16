@@ -3,7 +3,7 @@ let html = ''
 
 async function getMovie(movie) {
     try {
-        const response = await fetch(`http://www.omdbapi.com/?s=${movie}&apikey=ead28c58&t`)
+        const response = await fetch(`https://www.omdbapi.com/?s=${movie}&apikey=ead28c58&t`)
         const data = await response.json()
         data.Search.forEach(movie => {
             getMovieDetails(movie.imdbID)
@@ -15,7 +15,7 @@ async function getMovie(movie) {
 
 async function getMovieDetails(imdbID) {
     try {
-        const response = await fetch(`http://www.omdbapi.com/?i=${imdbID}&apikey=ead28c58&t`)
+        const response = await fetch(`https://www.omdbapi.com/?i=${imdbID}&apikey=ead28c58&t`)
         const data = await response.json()
         renderMovieHtml(data)
     } catch (error) {
