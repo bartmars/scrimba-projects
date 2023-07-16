@@ -25,14 +25,13 @@ async function getMovieDetails(imdbID) {
 
 function renderError() {
     resultsEl.style.background = 'none'
-    resultsEl.style.height = 'auto'
     resultsEl.style.textAlign = 'center'
     resultsEl.innerHTML = `
         <p class="error-text-700">Unable to find what you are looking for. Please try another search.</p>`
 }
 
 function renderMovieHtml(movie) {
-    const { imdbID, imdbRating, Poster, Title, Runtime, Genre, Plot } = movie
+    const { imdbID, imdbRating, Year, Poster, Title, Runtime, Genre, Plot } = movie
     html += `
         <div class="item">
             <img src="${Poster}" alt=${Title}>
@@ -45,8 +44,19 @@ function renderMovieHtml(movie) {
                     <p class="small-text-400">${Runtime}</p>
                     <p class="small-text-400">${Genre}</p>
                     <div class="item-watchlist">
-                        <button id="add-to-watchlist-btn" class="add-to-watchlist-btn" data-add="${imdbID}" type="button">
-                            <i class="bi bi-plus-circle-fill"> Watchlist
+                        <button id="add-watchlist${imdbID}" class="watchlist-btn"                                
+                            data-id=${imdbID} 
+                            data-poster=${Poster}
+                            data-title=${Title}
+                            data-year=${Year}
+                            data-ratings=${imdbRating}
+                            data-runtime=${Runtime}
+                            data-genre=${Genre}
+                            data-plot=${Plot}
+                        >
+                            <span>
+                                <i class="bi bi-plus-circle-fill"> Watchlist</i>
+                            </span>
                         </button>
                     </div>
                 </div>
@@ -66,25 +76,22 @@ document.addEventListener('click', async e => {
 
         getMovie(searchTerm)
     }
-    else if (e.target.dataset.add) {
-        if (localStorage.getItem('movies')) {
-            const watchlistArray = JSON.parse(localStorage.getItem('movies'))
-            watchlistArray.push(e.target.dataset.add)
-            localStorage.setItem('movies', JSON.stringify(watchlistArray))
-        } else {
-            const watchlistArray = []
-            watchlistArray.push(e.target.dataset.add)
-            localStorage.setItem('movies', JSON.stringify(watchlistArray))
-        }
-    }
-    else if (e.target.dataset.del) {
-        let watchlistArray = JSON.parse(localStorage.getItem('movies'))
-        watchlistArray = watchlistArray.filter(movie => movie.id !== e.target.dataset.del)
-        movieResults.innerHTML = ''
-        watchlistArray.forEach(movie => {
-            renderMovieHtml(movie)
-        })
-        localStorage.setItem('movies', JSON.stringify('movies', watchlistArray))
-    }
 })
 
+resultsEl.addEventListener('click', (e) => {
+    const movie = e.currentTarget.dataset;
+    const button = document.querySelectorAll("[add]")
+    console.log(button)
+
+    if (localStorage.getItem('movies')) {
+        const watchList = JSON.parse(localStorage.getItem('movies'))
+        watchList.push(movie)
+        localStorage.setItem('movies', JSON.stringify(watchList))
+    } else {
+        const watchList = [];
+        watchList.push(movie)
+        localStorage.setItem('movies', JSON.stringify(watchList))
+    }        
+
+
+})

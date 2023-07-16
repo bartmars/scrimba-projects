@@ -32,8 +32,16 @@ header {
     font-size: 2.6875rem;
 }
 
+a {
+    color: #000000;
+}
+
 .header-link {
     color: white;
+}
+
+.header-link,
+a {
     text-decoration: none;
     font-size: 0.875rem;
     font-weight: 700;
@@ -134,29 +142,32 @@ div#results {
     align-items: center;
 }
 
-.add-to-watchlist-btn {
+.watchlist-btn {
     background: none;
     border: none;
-    height: 2em;
-    width: 2em;
     padding: 0;
-}
-
-.add-to-watchlist-btn > img {
-    width: 100%;
-    cursor: grab; 
 }
 
 .plot {
     color: #6B7280;
 }
 
-.plot > span {
-    color: black;
-}
-
 .error-text-700 {
     font-size: 1.125rem;
     font-weight: 700;
     color: #DFDDDD;
+}
+
+i {
+    font-style: normal;
+}
+
+.bi-plus-circle-fill:hover,
+.watchlist-btn:focus {
+    color: limegreen;
+}
+
+.bi-dash-circle-fill:hover,
+.bi-dash-circle-fill:focus {
+    color: red;
 }

@@ -18,8 +18,9 @@ function renderMovieHtml(movie) {
                     <p class="small-text-400">${Runtime}</p>
                     <p class="small-text-400">${Genre}</p>
                     <div class="item-watchlist">
-                        <button id="add-to-watchlist-btn" class="add-to-watchlist-btn" data-del="${imdbID}" type="button">DEL</button>
-                        <p class="small-text-400">#</p>
+                        <button id="delete-${imdbID}" class="add-to-watchlist-btn" type="button">
+                            <i class="bi bi-dash-circle-fill" data-del="${imdbID}"> Watchlist</i>
+                        </button>
                     </div>
                 </div>
                 <p class="plot smaller-text-400">${Plot}</p>
@@ -40,10 +41,10 @@ document.addEventListener('DOMContentLoaded', () => {
         })
     } else {
         resultsEl.style.background = 'none'
-        resultsEl.style.height = 'auto'
+        resultsEl.style.textAlign = 'center'
         resultsEl.innerHTML = `
             <p class="error-text-700">Your watchlist is looking a little empty...</p>
-            <p><i class="bi bi-plus-circle-fill"></i> Let's add some movies!</p>`
+            <a href="index.js"><i class="bi bi-plus-circle-fill"> Let's add some movies!</i></a>`
     }
 
 })
