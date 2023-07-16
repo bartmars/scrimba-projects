@@ -39,6 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
             renderMovieHtml(movie)
         })
     } else {
+        resultsEl.style.background = 'none'
+        resultsEl.style.height = 'auto'
         resultsEl.innerHTML = `
             <p class="error-text-700">Your watchlist is looking a little empty...</p>
             <p><i class="bi bi-plus-circle-fill"></i> Let's add some movies!</p>`
