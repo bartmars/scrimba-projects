@@ -9,6 +9,7 @@ async function getMovie(movie) {
             getMovieDetails(movie.imdbID)
         })
     } catch (error) {
+        console.log(error)
         renderError()
     }
 }
@@ -19,6 +20,7 @@ async function getMovieDetails(imdbID) {
         const data = await response.json()
         renderMovieHtml(data)
     } catch (error) {
+        console.log(error)
         renderError()
     }
 }
@@ -44,18 +46,20 @@ function renderMovieHtml(movie) {
                     <p class="small-text-400">${Runtime}</p>
                     <p class="small-text-400">${Genre}</p>
                     <div class="item-watchlist">
-                        <button id="add-watchlist${imdbID}" class="watchlist-btn"                                
-                            data-id=${imdbID} 
-                            data-poster=${Poster}
-                            data-title=${Title}
-                            data-year=${Year}
-                            data-ratings=${imdbRating}
-                            data-runtime=${Runtime}
-                            data-genre=${Genre}
-                            data-plot=${Plot}
-                        >
+                        <button id="add-watchlist${imdbID}" class="watchlist-btn">
                             <span>
-                                <i class="bi bi-plus-circle-fill"> Watchlist</i>
+                                <i class="bi bi-plus-circle-fill"
+                                    data-id="${imdbID}"
+                                    data-poster="${Poster}"
+                                    data-title="${Title}"
+                                    data-year="${Year}"
+                                    data-ratings="${imdbRating}"
+                                    data-runtime="${Runtime}"
+                                    data-genre="${Genre}"
+                                    data-plot="${Plot}"
+                                > 
+                                     Watchlist
+                                </i>
                             </span>
                         </button>
                     </div>
@@ -63,25 +67,22 @@ function renderMovieHtml(movie) {
                 <p class="plot smaller-text-400">${Plot}</p>
             </div>
         </div>`
+
     resultsEl.style.background = 'none'
     resultsEl.style.height = 'auto'
     resultsEl.innerHTML = html           
 }
 
-document.addEventListener('click', async e => {
+document.addEventListener('click', async (e) => {
     if (e.target.id === 'search-btn') {
         e.preventDefault()
         let searchTerm = document.getElementById('search-input').value
-        // requestMovie(searchTerm)
-
         getMovie(searchTerm)
     }
 })
 
 resultsEl.addEventListener('click', (e) => {
-    const movie = e.currentTarget.dataset;
-    const button = document.querySelectorAll("[add]")
-    console.log(button)
+    const movie = e.target.dataset;
 
     if (localStorage.getItem('movies')) {
         const watchList = JSON.parse(localStorage.getItem('movies'))

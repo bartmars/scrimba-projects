@@ -1,44 +1,56 @@
-import { requestMovie } from "./js/requestMovie.js"
-
 const resultsEl = document.getElementById('results')
-const removeBtn = document.getElementById('remove-btn')
 let html = ''
+let movieArray = []
+let movieArrayHtml = ''
 
 function renderMovieHtml(movie) {
-    const { imdbID, imdbRating, Poster, Title, Runtime, Genre, Plot } = movie
-    html += `
+    const { id, ratings, year, poster, title, runtime, genre, plot } = movie
+    return html = `
         <div class="item">
-            <img src="${Poster}" alt=${Title}>
+            <img src="${poster}" alt=${title}>
             <div>
                 <div class="item-header">
-                    <h2>${Title}</h2>
-                    <p class="small-text-400">⭐️ ${imdbRating}</p>
+                    <h2>${title}</h2>
+                    <p class="small-text-400">⭐️ ${ratings}</p>
                 </div>
                 <div class="item-details">
-                    <p class="small-text-400">${Runtime}</p>
-                    <p class="small-text-400">${Genre}</p>
+                    <p class="small-text-400">${runtime}</p>
+                    <p class="small-text-400">${genre}</p>
                     <div class="item-watchlist">
-                        <button id="delete-${imdbID}" class="add-to-watchlist-btn" type="button">
-                            <i class="bi bi-dash-circle-fill" data-del="${imdbID}"> Watchlist</i>
+                        <button id="add-watchlist${id}" class="watchlist-btn">
+                            <span>
+                                <i class="bi bi-dash-circle-fill"
+                                    data-id=${id} 
+                                    data-poster=${poster}
+                                    data-title=${title}
+                                    data-year=${year}
+                                    data-ratings=${ratings}
+                                    data-runtime=${runtime}
+                                    data-genre=${genre}
+                                    data-plot=${plot}
+                                > 
+                                    Watchlist
+                                </i>
+                            </span>
                         </button>
                     </div>
                 </div>
-                <p class="plot smaller-text-400">${Plot}</p>
+                <p class="plot smaller-text-400">${plot}</p>
             </div>
-        </div>`
-    resultsEl.style.background = 'none'
-    resultsEl.style.height = 'auto'
-    resultsEl.innerHTML = html           
+        </div>`       
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const movieArray = JSON.parse(localStorage.getItem('movies'))
+    movieArray = JSON.parse(localStorage.getItem('movies'))
     console.log('movieArray', movieArray)
 
     if (movieArray) {
         movieArray.forEach(movie => {
-            renderMovieHtml(movie)
+            movieArrayHtml += renderMovieHtml(movie)
         })
+        resultsEl.style.background = 'none'
+        resultsEl.style.height = 'auto'
+        resultsEl.innerHTML = movieArrayHtml
     } else {
         resultsEl.style.background = 'none'
         resultsEl.style.textAlign = 'center'
@@ -46,15 +58,18 @@ document.addEventListener('DOMContentLoaded', () => {
             <p class="error-text-700">Your watchlist is looking a little empty...</p>
             <a href="index.js"><i class="bi bi-plus-circle-fill"> Let's add some movies!</i></a>`
     }
-
 })
 
-document.addEventListener('click', () => {
+resultsEl.addEventListener('click', (e) => {
+    let watchlistArrayHtml = ''
+
     let watchlistArray = JSON.parse(localStorage.getItem('movies'))
-    watchlistArray = watchlistArray.filter(movie => movie.id !== e.target.dataset.del)
-    movieResults.innerHTML = ''
+    watchlistArray = watchlistArray.filter(movie => movie.id !== e.target.dataset.id)
+    resultsEl.innerHTML = ''
     watchlistArray.forEach(movie => {
-        renderMovieHtml(movie)
+        watchlistArrayHtml += renderMovieHtml(movie)
     })
-    localStorage.setItem('movies', JSON.stringify('movies', watchlistArray))
+    console.log('watchlistArrayHtml', watchlistArrayHtml)
+    resultsEl.innerHTML = watchlistArrayHtml
+    localStorage.setItem('movies', JSON.stringify(watchlistArray))
 })
