@@ -73,7 +73,7 @@ form > button {
     border-bottom-right-radius: 5px;
 }
 
-div#movie-results {
+div#results {
     background-image: url('images/no-data-initial.png');
     background-position: center;
     background-repeat: no-repeat;
