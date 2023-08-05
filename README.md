@@ -3,6 +3,7 @@ These are solo projects that I've done for the Frontend Career Path:
 
 | Solo project          | View website                                       |
 |-----------------------|----------------------------------------------------|
+| Business Card         | [View](https://business-card.bartmars.dev)         |
 | Movie Watchlist       | [View](https://movie-watchlist.bartmars.dev)       |
 | Color Picker          | [View](https://color-picker.bartmars.dev)          |
 | Tindog                | [View](https://tindog.bartmars.dev)                |
