@@ -3,6 +3,7 @@ These are solo projects that I've done for the Frontend Career Path:
 
 | Solo project          | View website                                       |
 |-----------------------|----------------------------------------------------|
+| Travel Journal        | [View](https://travel-journal.bartmars.dev)        |
 | Business Card         | [View](https://business-card.bartmars.dev)         |
 | Movie Watchlist       | [View](https://movie-watchlist.bartmars.dev)       |
 | Color Picker          | [View](https://color-picker.bartmars.dev)          |
@@ -15,6 +16,5 @@ These are solo projects that I've done for the Frontend Career Path:
 | Basketball Scoreboard | [View](https://basketball-scoreboard.bartmars.dev) |
 | Hometown Homepage     | [View](https://hometown-homepage.bartmars.dev)     |
 
-
-# TODO
+## TODO
 * Fix project Oldagram stretch goals

@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;   
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.64rem;
+    margin: 0;
+    color: #2B283A;
+}
+
+.container {
+    width: 34.375em;
+    margin: 0 auto;
+}
+
+@media (min-width: 34.375em) {
+    .container {
+        width: 100%;
+    }
+
+    .card {
+        max-width: 34.375em;
+        border-bottom: none;
+    }
+
+    .card-image {
+        width: 100%;
+        height: 21em;
+    }
+}
+
+.header {
+    background-color: #F55A5A;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.4375em;
+    gap: 0.5em;
+}
+
+.header-title {
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: -1.085px;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    margin: 2.5em;
+    border-bottom: 1px solid #F5F5F5;
+    padding-top: 1.125em;
+    display: flex;
+    gap: 1em;
+}
+
+.card-image {
+    border-radius: 0.625em;
+    width: 7.8125em;
+    height: 10.5em;
+    object-fit: cover;
+}
+
+.card-location-details {
+    display: flex;
+    align-items: center;
+    gap: 0.75em;
+}
+
+.card-location {
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+}
+
+.card-googlemaps {
+    color: #918E9B;
+
+}
+
+.card-location-image {
+
+}
+
+.card-title {
+    font-weight: 700;
+    font-size: 1.5625em;
+    margin-top: -0.35em;
+    margin-bottom: 0.75em;
+}
+
+.card-timeperiod {
+    font-weight: 700;
+}
+
+.card-description {
+    line-height: 1.5;
+    font-weight: 400;
+}
