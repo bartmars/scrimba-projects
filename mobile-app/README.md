@@ -10,5 +10,6 @@ This repository is being auto-deployed via an Netlify app.
 * Prevent multiple renders of the same list
 * Remove item to the list
 * If no items are on the list, display message
+* Use Firebase database to store the items
 
 
