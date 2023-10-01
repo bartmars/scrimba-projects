@@ -1,4 +1,4 @@
-# Travel Journal
+# Mobile App
 Scrimba Project from the Frontend Developer Career Path, but personalized
 
 ## Deployment
