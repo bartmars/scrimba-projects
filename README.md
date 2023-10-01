@@ -16,5 +16,9 @@ These are solo projects that I've done for the Frontend Career Path:
 | Basketball Scoreboard | [View](https://basketball-scoreboard.bartmars.dev) |
 | Hometown Homepage     | [View](https://hometown-homepage.bartmars.dev)     |
 
+| Course projects       | View website                                       |
+|-----------------------|----------------------------------------------------|
+| Mobile App            | [View](https://mobile-app.bartmars.dev)            |
+
 ## TODO
 * Fix project Oldagram stretch goals
