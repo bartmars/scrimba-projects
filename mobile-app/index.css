@@ -62,14 +62,15 @@ ul li {
     list-style: none;
     padding: 15px 15px;
     border-radius: 5px;
-    background-color: #fdfd96;
-    border: #FDFD96 1px solid;
+    background-color: #96E596;
+    border: #96E596 1px solid;
     flex-grow: 1;
     color: #544335;
 }
 
 ul li:hover {
     background-color: #9696fd;
+    border-color: #9696fd;
     color: #fafafa;
 }
 
