@@ -10,7 +10,7 @@ This repository is being auto-deployed via an Netlify app.
 * [x] Firebase Realtime Database
 * [x] Updates in realtime
 * Stretch goals:
-    * [] Add From and To input fields
+    * [x] Add From and To input fields
     * [] Reverse the order of endorsements
     * [] Add likes (only add once)
     * [] Make a desktop version

@@ -20,18 +20,30 @@ addButton.addEventListener("click", () => {
     clearInput()
 })
 
+inputEndorsementText.addEventListener("click", () => {
+    /* textareas with placeholder text, behave differently than input fields.
+       This mimics the same behavior. */
+    clearInput()
+})
+
 onValue(referenceTableInDB, (snapshot) => {
-    const itemsArray = Object.entries(snapshot.val())
+    if (snapshot.exists()) {
+        const itemsArray = Object.entries(snapshot.val())
 
-    clearEndorsementList()
+        clearEndorsementList()
+    
+        const itemsArrayHtml = itemsArray.map(item => {
+            addItemToList(item)
+        })
+    }
+    else {
+        endorsementList.textContent = "No endorsements... yet!"
+    }
 
-    const itemsArrayHtml = itemsArray.map(item => {
-        addItemToList(item)
-    })
 })
 
 function clearInput() {
-    inputEndorsementText.textContent = ""
+    inputEndorsementText.value = ""
 }
 
 function clearEndorsementList() {
@@ -39,11 +51,25 @@ function clearEndorsementList() {
 }
 
 function addItemToList(item) {
+    /* This is working! */
+    // let newItem = document.createElement("div")
+    // newItem.classList = "endorsement"
+    // newItem.textContent = item[1]
+
+    /* Trying to get this to work */
     let newItem = document.createElement("div")
     newItem.classList = "endorsement"
-    newItem.textContent = item[1]
+    newItem.innerHTML = `
+    <p class="to-person">${item[0]}</p>
+    ${item[1]}
+    <div class="from-person-details">
+        <p class="from-person">${item[0]}</p>
+        <p class="from-person">🖤 ${item[0]}</p>
+    </div>`
 
-    newItem.addEventListener("click", () => {
+
+    newItem.addEventListener("dblclick", () => {
+        /* Not required, but nice to have */
         let referenceItemInTable = ref(database, `we-are-the-champions/${item[0]}`)
         remove(referenceItemInTable)
     })
