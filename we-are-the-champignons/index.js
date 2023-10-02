@@ -57,16 +57,26 @@ function addItemToList(item) {
     // newItem.textContent = item[1]
 
     /* Trying to get this to work */
+    // let newItem = document.createElement("div")
+    // newItem.classList = "endorsement"
+    // newItem.innerHTML = `
+    // <p class="to-person">${item[0]}</p>
+    // ${item[1]}
+    // <div class="from-person-details">
+    //     <p class="from-person">${item[0]}</p>
+    //     <p class="from-person">🖤 ${item[0]}</p>
+    // </div>`
+
+    /* Figuring out how everything is viewed */
     let newItem = document.createElement("div")
     newItem.classList = "endorsement"
     newItem.innerHTML = `
-    <p class="to-person">${item[0]}</p>
-    ${item[1]}
+    <p class="to-person">To Leanne</p>
+    <p>Leanne! Thank you so much for helping me with the March accounting. Saved so much time because of you!</p>
     <div class="from-person-details">
-        <p class="from-person">${item[0]}</p>
-        <p class="from-person">🖤 ${item[0]}</p>
+        <p class="from-person">From Frode</p>
+        <p class="from-person">🖤 7</p>
     </div>`
-
 
     newItem.addEventListener("dblclick", () => {
         /* Not required, but nice to have */
