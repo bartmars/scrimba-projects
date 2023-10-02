@@ -12,6 +12,7 @@
         "build:learning-blog": "npm --prefix learning-blog run build"
     },
     "dependencies": {
+        "firebase": "^10.4.0",
         "node-fetch": "^3.3.1"
     }
 }
