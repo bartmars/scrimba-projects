@@ -10,17 +10,25 @@ const app = initializeApp(firebaseAppSettings)
 const database = getDatabase(app)
 const referenceTableInDB = ref(database, "we-are-the-champions")
 
-const inputEndorsementText = document.getElementById("input-endorsement-text")
+const inputMessage = document.getElementById("input-message")
+const inputTo = document.getElementById("input-to")
+const inputFrom = document.getElementById("input-from")
 const addButton = document.getElementById("add-button")
-const endorsementList = document.getElementById("endorsements-list")
+const endorsementList = document.getElementById("message-list")
 
 addButton.addEventListener("click", () => {
-    let inputEndorsementTextValue = inputEndorsementText.value
-    push(referenceTableInDB, inputEndorsementTextValue)
+    // let inputMessageValue = inputMessage.value
+    let inputObject = {
+        "to": inputTo.value,
+        "from": inputFrom.value,
+        "message": inputMessage.value,
+        "stars": 0
+    } 
+    push(referenceTableInDB, inputObject)
     clearInput()
 })
 
-inputEndorsementText.addEventListener("click", () => {
+inputMessage.addEventListener("click", () => {
     /* textareas with placeholder text, behave differently than input fields.
        This mimics the same behavior. */
     clearInput()
@@ -32,8 +40,8 @@ onValue(referenceTableInDB, (snapshot) => {
 
         clearEndorsementList()
     
-        const itemsArrayHtml = itemsArray.map(item => {
-            addItemToList(item)
+        const itemsArrayHtml = itemsArray.toReversed().map(item => {
+            addItemToMessageList(item)
         })
     }
     else {
@@ -43,39 +51,33 @@ onValue(referenceTableInDB, (snapshot) => {
 })
 
 function clearInput() {
-    inputEndorsementText.value = ""
+    inputMessage.value = ""
+    inputTo.value = ""
+    inputFrom.value = ""
 }
 
 function clearEndorsementList() {
     endorsementList.innerHTML = ""
 }
 
-function addItemToList(item) {
+function addItemToMessageList(item) {
     /* This is working! */
     // let newItem = document.createElement("div")
     // newItem.classList = "endorsement"
     // newItem.textContent = item[1]
 
-    /* Trying to get this to work */
-    // let newItem = document.createElement("div")
-    // newItem.classList = "endorsement"
-    // newItem.innerHTML = `
-    // <p class="to-person">${item[0]}</p>
-    // ${item[1]}
-    // <div class="from-person-details">
-    //     <p class="from-person">${item[0]}</p>
-    //     <p class="from-person">🖤 ${item[0]}</p>
-    // </div>`
+    console.log(item)
 
-    /* Figuring out how everything is viewed */
+    /* Trying to get this to work, works!! */
+    const {to, from, message, stars} = item[1] 
     let newItem = document.createElement("div")
     newItem.classList = "endorsement"
     newItem.innerHTML = `
-    <p class="to-person">To Leanne</p>
-    <p>Leanne! Thank you so much for helping me with the March accounting. Saved so much time because of you!</p>
+    <p class="to-person">To ${to}</p>
+    ${message}
     <div class="from-person-details">
-        <p class="from-person">From Frode</p>
-        <p class="from-person">🖤 7</p>
+        <p class="from-person">From ${from}</p>
+        <p class="from-person">🖤 ${stars}</p>
     </div>`
 
     newItem.addEventListener("dblclick", () => {

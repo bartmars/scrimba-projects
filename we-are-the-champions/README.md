@@ -1,4 +1,4 @@
-# Mobile App
+# We are the Champions
 Scrimba Soloproject Project from the Frontend Developer Career Path, but personalized
 
 ## Deployment
@@ -11,6 +11,6 @@ This repository is being auto-deployed via an Netlify app.
 * [x] Updates in realtime
 * Stretch goals:
     * [x] Add From and To input fields
-    * [] Reverse the order of endorsements
+    * [x] Reverse the order of endorsements
     * [] Add likes (only add once)
     * [] Make a desktop version
