@@ -63,7 +63,7 @@ function clearMessageList() {
 function addItemToMessageList(item) {
     const {to, from, message, stars} = item[1] 
     let newItem = document.createElement("div")
-    newItem.classList = "endorsement"
+    newItem.classList = "message"
     newItem.innerHTML = `
     <p class="to-person">To ${to}</p>
     ${message}
