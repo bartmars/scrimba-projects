@@ -30,7 +30,7 @@ body,
 
 @media (min-width: 24.376em) {
     .container {
-        max-width: 50em;
+        max-width: 40em;
         flex-direction: row;
         flex-wrap: wrap;
     }
