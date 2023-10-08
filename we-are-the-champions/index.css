@@ -112,7 +112,7 @@ button:hover {
 .message {
     color: #1B1924;
     background-color: #FFFFFF;
-    padding: 0.875em;
+    padding: 0.875em 1.125em;
     margin-bottom: 1em;
 }
 
