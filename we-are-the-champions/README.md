@@ -13,4 +13,4 @@ This repository is being auto-deployed via an Netlify app.
     * [x] Add From and To input fields
     * [x] Reverse the order of endorsements
     * [x] Add likes (only add once)
-    * [] Make a desktop version
+    * [x] Make a desktop version
