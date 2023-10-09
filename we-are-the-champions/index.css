@@ -21,11 +21,16 @@ body,
 
 .container {
     flex-direction: column;
-    align-items: center;
+    flex-grow: 1;
     margin-top: 3.1875em;
     margin-bottom: 1em;
     max-width: 24.375em;
     padding: 2.3125em;
+    justify-content: center;
+}
+
+.centered {
+    text-align: center;
 }
 
 @media (min-width: 24.376em) {
@@ -114,6 +119,7 @@ button:hover {
     background-color: #FFFFFF;
     padding: 0.875em 1.125em;
     margin-bottom: 1em;
+    text-align: left;
 }
 
 .to-person,
@@ -124,4 +130,8 @@ button:hover {
 .from-person-details {
     display: flex;
     justify-content: space-between;
+}
+
+#error-message div {
+    display: block;
 }

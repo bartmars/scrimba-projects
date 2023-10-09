@@ -11,16 +11,22 @@
 </head>
 <body>
     <main class="container">
-        <img class="logo" src="assets/freddie.png" alt="a silhouette of Freddy Mercury">
-        <h1>We are the Champions</h1>
-        <textarea id="input-message">Write your endorsement here</textarea>
-        <div class="sender-receiver-fields">
-            <input id="input-from" type="text" placeholder="From">
-            <input id="input-to" type="text" placeholder="To">
+        <div class="centered">
+            <img class="logo" src="assets/freddie.png" alt="a silhouette of Freddy Mercury">
+            <h1>We are the Champions</h1>
         </div>
-        <button id="add-button" type="button">Publish</button>
-        <h2>- Endorsements -</h2>
-        <div id="message-list"></div>
+        <form method="POST" class="centered">
+            <textarea id="input-message" required >Write your endorsement here</textarea>
+            <div class="sender-receiver-fields">
+                <input id="input-from" type="text" placeholder="From" required />
+                <input id="input-to" type="text" placeholder="To" required />
+            </div>
+            <button id="add-button" type="submit">Publish</button>
+        </form>
+        <div class="centered">
+            <h2>- Endorsements -</h2>
+            <div id="message-list"></div>
+        </div>
     </main>
     <script src="index.js" type="module"></script>
 </body>

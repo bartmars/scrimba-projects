@@ -14,3 +14,6 @@ This repository is being auto-deployed via an Netlify app.
     * [x] Reverse the order of endorsements
     * [x] Add likes (only add once)
     * [x] Make a desktop version
+* Own goals:
+    * [] Deny empty messages when one or more fields are empty after publishing
+    * [] Add likes per item
