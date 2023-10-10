@@ -67,11 +67,10 @@ function addItemToMessageList(item) {
     ${message}
     <div class="from-person-details">
         <p class="from-person">From ${from}</p>
-        <p class="from-person" id="stars" data-id=${item[0]}>🖤 ${stars}</p>
+        <p class="from-person" id="stars" data-id=${item[0]}>${(isLiked) ? "💚" : "🖤"} ${stars}</p>
     </div>`
 
     newItem.addEventListener("click", (e) => {
-        isLiked = false
         console.log('outer:', isLiked)
 
         if (e.target.dataset.id === item[0]) {
