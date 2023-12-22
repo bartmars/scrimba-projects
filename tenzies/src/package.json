@@ -1,0 +1,33 @@
+{
+  "name": "tenzies",
+  "dependencies": {
+    "nanoid": "^3.3.7",
+    "react": "^18.2.0",
+    "react-confetti": "^6.1.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^4.7.16",
+    "babel-loader": "^7.0",
+    "babel-preset-env": "*",
+    "babel-preset-react": "*",
+    "webpack": "^5.89.0"
+  },
+  "scripts": {
+    "start": "CHOKIDAR_USEPOLLING=true react-scripts start",
+    "build": "webpack",
+    "watch": "webpack -w"
+  },
+  "description": "Scrimba project from the Frontend Developer Career Path, with added ideas.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "github.com/bartmars/scrimba-projects/tenzies"
+  },
+  "keywords": [
+    "tenzies"
+  ],
+  "author": "Scrimba",
+  "license": "ISC"
+}
