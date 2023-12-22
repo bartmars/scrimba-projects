@@ -2,13 +2,15 @@ import React from "react"
 import Die from "./Die.jsx"
 import {nanoid} from "nanoid"
 import Confetti from "react-confetti"
+import Moment from "moment"
+import moment from "moment"
 
 export default function App() {
 
     const [dice, setDice] = React.useState(allNewDice())
     const [tenzies, setTenzies] = React.useState(false)
     const [count, setCount] = React.useState(0)
-    const [trackTime, setTrackTime] = React.useState(Date.now())
+    const [trackTime, setTrackTime] = React.useState(moment.now())
     
     React.useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -20,9 +22,7 @@ export default function App() {
     }, [dice])
 
     function calculateTimeDifference(endTime) {
-        const result = (endTime - trackTime) / 1000
-        console.log("result:", result)
-        setTrackTime(result)
+        return moment(trackTime).fromNow()
     }
 
     function generateNewDie() {
@@ -52,7 +52,7 @@ export default function App() {
         } else {
             calculateTimeDifference(Date.now())
             setCount(0)
-            setTrackTime(Date.now())
+            
             setTenzies(false)
             setDice(allNewDice())
         }
@@ -86,7 +86,7 @@ export default function App() {
             </div>
             <p>Statistics</p>
             <p>Tries: {count}</p>
-            {tenzies && <p>Last try in {trackTime} seconds</p>}
+            {tenzies && <p>Last try in {moment().subtract(trackTime).fromNow('ss')}</p>}
             <button 
                 className="roll-dice" 
                 onClick={rollDice}
