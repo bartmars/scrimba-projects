@@ -16,6 +16,7 @@ export default function App() {
         const allSameValue = dice.every(die => die.value === firstValue)
         if (allHeld && allSameValue) {
             setTenzies(true)
+            setEndTime(performance.now())
         }
     }, [dice])
 
@@ -47,7 +48,8 @@ export default function App() {
                     generateNewDie()
             }))
         } else {
-            setEndTime(performance.now())
+            setStartTime(null)
+            setEndTime(null)
             setCount(0)
             setTenzies(false)
             setDice(allNewDice())
@@ -71,12 +73,7 @@ export default function App() {
         />
     ))
 
-    /* 
-        conversion from milliseconds to seconds is dividing by 1000
-        performance.now() uses milliseconds, but dividing by 1000 seems to add a additional 0 to elapsedTime
-        unsure what I'm doing wrong here, but at least the elapsedTime now works as it should 
-    */
-    const elapsedTime = (endTime - startTime) / 10000
+    const elapsedTime = (endTime - startTime) / 1000
     
     return (
         <main>
