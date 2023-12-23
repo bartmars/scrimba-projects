@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #F5F7FB;
+    margin: 0;
+}
+
+.content {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    padding: 2.5em 5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 34.375em;
+    margin: auto;
+}
+
+.title {
+    font-family: 'Karla', sans-serif;
+    margin: 0;
+}
+
+.btn {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    background-color: #4D5B9E;
+    padding: 0.75em 3em;
+    border-radius: 1em;
+    border: none;
+    color: #FFF;
+    margin-top: 2em;
+}
+
+.blob-top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.blob-bottom-left {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.question {
+    border-bottom: 1px solid #DBDEF0;
+}
+
+.question-setup {
+    font-family: 'Karla', sans-serif;
+    font-weight: 700;
+}
+
+.answer {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.64rem;
+    border-radius: 0.5em;
+    color: #293264;
+}
+
+.answer-selected {
+    background-color: #D6DBF5;
+}
+
+.answer-good {
+    background-color: #F8BCBC;
+    
+}
+
+.answer-wrong {
+    background-color: #F8BCBC;
+}
