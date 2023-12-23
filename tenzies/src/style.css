@@ -71,6 +71,14 @@ main {
     cursor: pointer;
 }
 
+.dot-dice {
+    width: 5px;
+    height: 5px;
+    background-color: #5035FF;
+    border-radius: 50%;
+    display: inline-block;
+}
+
 .roll-dice:focus {
     outline: none;
 }
