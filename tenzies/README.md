@@ -9,6 +9,6 @@ This repository is being auto-deployed via Netlify.
 * Extra credit:
     * [] Put real dots on the dice
     * [x] Track the number of rolls
-    * [] Track the time it took to win
+    * [x] Track the time it took to win
     * [] Save your best time to LocalStorage
 

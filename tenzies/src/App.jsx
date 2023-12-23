@@ -2,15 +2,13 @@ import React from "react"
 import Die from "./Die.jsx"
 import {nanoid} from "nanoid"
 import Confetti from "react-confetti"
-import Moment from "moment"
-import moment from "moment"
 
-export default function App() {
-
-    const [dice, setDice] = React.useState(allNewDice())
+export default function App() { 
+   const [dice, setDice] = React.useState(allNewDice())
     const [tenzies, setTenzies] = React.useState(false)
     const [count, setCount] = React.useState(0)
-    const [trackTime, setTrackTime] = React.useState(moment.now())
+    const [startTime, setStartTime] = React.useState(null)
+    const [endTime, setEndTime] = React.useState(null)
     
     React.useEffect(() => {
         const allHeld = dice.every(die => die.isHeld)
@@ -20,10 +18,6 @@ export default function App() {
             setTenzies(true)
         }
     }, [dice])
-
-    function calculateTimeDifference(endTime) {
-        return moment(trackTime).fromNow()
-    }
 
     function generateNewDie() {
         return {
@@ -43,6 +37,9 @@ export default function App() {
     
     function rollDice() {
         if(!tenzies) {
+            if (startTime === null) {
+                setStartTime(performance.now())
+            }
             setCount(prevCount => prevCount + 1)
             setDice(oldDice => oldDice.map(die => {
                 return die.isHeld ? 
@@ -50,9 +47,8 @@ export default function App() {
                     generateNewDie()
             }))
         } else {
-            calculateTimeDifference(Date.now())
+            setEndTime(performance.now())
             setCount(0)
-            
             setTenzies(false)
             setDice(allNewDice())
         }
@@ -74,6 +70,13 @@ export default function App() {
             holdDice={() => holdDice(die.id)}
         />
     ))
+
+    /* 
+        conversion from milliseconds to seconds is dividing by 1000
+        performance.now() uses milliseconds, but dividing by 1000 seems to add a additional 0 to elapsedTime
+        unsure what I'm doing wrong here, but at least the elapsedTime now works as it should 
+    */
+    const elapsedTime = (endTime - startTime) / 10000
     
     return (
         <main>
@@ -86,7 +89,7 @@ export default function App() {
             </div>
             <p>Statistics</p>
             <p>Tries: {count}</p>
-            {tenzies && <p>Last try in {moment().subtract(trackTime).fromNow('ss')}</p>}
+            {tenzies && <p>Last try {elapsedTime.toFixed(2)} seconds</p>}
             <button 
                 className="roll-dice" 
                 onClick={rollDice}
