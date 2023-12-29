@@ -9,68 +9,45 @@ import Game from "./components/Game"
 
 export default function App() {
 
-  const [hasGameStarted, setHasGameStarted] = useState(false)
-  const [token, setToken] = useState('')
-  const [questionsArray, setQuestionsArray] = useState([])
-  const [gameSettings, setGameSettings] = useState({
-    amount: 5,
-    category: 9, // https://opentdb.com/api_category.php
-    difficulty: "any",
-    type: "any",
-    encoding: "default",
-    token: token
-  })
+  const [hasGameStarted, setHasGameStarted] = useState(true)
+  const [questions, setQuestions] = useState([])
+  // const [token, setToken] = useState('')
+  // const [gameSettings, setGameSettings] = useState({
+  //   amount: 5,
+  //   category: 9, // https://opentdb.com/api_category.php
+  //   difficulty: "any",
+  //   type: "any",
+  //   encoding: "default",
+  // })
 
   useEffect(() => {
-    if (token === '') {
-      fetch("https://opentdb.com/api_token.php?command=request")
-      .then(response => {
-        if (response.ok) {
-          return response.json()
-        } 
-        else {
-          throw new Error("Something went wrong when retrieving token from API", response.status)
-        }
-      })
-      .then(data => {
-        setToken(data.token)
-        setHasGameStarted(true)
-      })
-      .catch(error => {
-        console.log(error)
-      })
-    }
-  }, [token])
+    const fetchData = async () => {
+      const response = await fetch(`https://www.otriviata.com/api.php?amount=5`)
+      const data = await response.json()
+      
+      setQuestions(data.results.map(item => {
+        const id = nanoid()
+        const allAnswers = [...item.incorrect_answers, item.correct_answer]
+        const correctAnswer = item.correct_answer
+        const question = item.question
 
-  useEffect(() => {
-    if (token !== '') {
-      fetch(`https://opentdb.com/api.php?amount=${gameSettings.amount}&token=${token}`)
-      .then(response => {
-        if (response.ok) {
-          return response.json()
-        } 
-        else {
-          throw new Error("Something went wrong when retrieving data from API", response.status)
+        return {
+          id: id,
+          question: question,
+          answers: allAnswers,
+          correctAnswer: correctAnswer
         }
-      })
-      .then(data => {
-        setQuestionsArray(data.results.map(result => {
-          const questionId = nanoid()
-          const 
-        }))
-      })
-      .catch(error => {
-        console.log(error)
-      })
+      }))
     }
-  }, [token])
+    fetchData()
+  }, [hasGameStarted])
 
-  console.log(questionsArray[0])
+
 
   return (
     <main>
       {/* {!hasGameStarted && <Intro />} */}
-      {hasGameStarted && <Game questionSetup={questionsArray}/>}
+      {hasGameStarted && <Game questions={questions} />}
     </main>
   )
 } 
