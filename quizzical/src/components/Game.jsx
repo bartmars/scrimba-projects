@@ -1,16 +1,13 @@
 import React from "react"
-
+import { nanoid } from 'nanoid'
 import Question from "./Question"
 
 export default function Game(props) {
-
-    console.log('Game:', props.questions)
-
     const renderQuestions = props.questions.map(item => {
         return (
             <Question 
-                key={item.id}
-                id={item.id} 
+                key={nanoid()}
+                id={nanoid()} 
                 question={item.question} 
                 answers={item.answers} 
                 correctAnswer={item.correctAnswer} 

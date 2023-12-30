@@ -8,9 +8,8 @@ This repository is being auto-deployed via Netlify.
 [Figma Design](https://www.figma.com/file/E9S5iPcm10f0RIHK8mCqKL/Quizzical-App?type=design&node-id=0-1&mode=design&t=h81pHtLBvfUSC3os-0)
 
 ## Requirements
-
 * Two screens (start & questions)
-* Pull 5 questions from the OTDB API
+* [x] Pull 5 questions from the OTDB API
 * Tally correct answers after "Check answers" is clicked
 * Style & polished
 

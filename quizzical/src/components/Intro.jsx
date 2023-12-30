@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React from "react"
 
 export default function Intro(props) {
@@ -7,7 +6,7 @@ export default function Intro(props) {
             <div className="container">
                 <h1 className="title">Quizzical</h1>
                 <p className="description">Click the button below to start the game</p>
-                <button className="btn" onClick={props.getToken}>Start quiz</button>
+                <button className="btn" onClick={props.startGame}>Start quiz</button>
             </div>
         </div>
     )

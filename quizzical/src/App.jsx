@@ -5,26 +5,19 @@ import { decode } from 'html-entities'
 import { nanoid } from 'nanoid'
 
 import Intro from "./components/Intro"
-import Game from "./components/Game"
+// import Game from "./components/Game"
+import Question from "./components/Question"
 
 export default function App() {
 
-  const [hasGameStarted, setHasGameStarted] = useState(true)
+  const [hasGameStarted, setHasGameStarted] = useState(false)
   const [questions, setQuestions] = useState([])
-  // const [token, setToken] = useState('')
-  // const [gameSettings, setGameSettings] = useState({
-  //   amount: 5,
-  //   category: 9, // https://opentdb.com/api_category.php
-  //   difficulty: "any",
-  //   type: "any",
-  //   encoding: "default",
-  // })
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`https://www.otriviata.com/api.php?amount=5`)
       const data = await response.json()
-      
+
       setQuestions(data.results.map(item => {
         const id = nanoid()
         const allAnswers = [...item.incorrect_answers, item.correct_answer]
@@ -33,21 +26,40 @@ export default function App() {
 
         return {
           id: id,
-          question: question,
-          answers: allAnswers,
-          correctAnswer: correctAnswer
+          question: decode(question),
+          answers: decode(allAnswers),
+          correctAnswer: decode(correctAnswer)
         }
       }))
+
     }
     fetchData()
   }, [hasGameStarted])
 
+  function handleGameStatus() {
+    setHasGameStarted(prevHasGameStarted => !prevHasGameStarted)
+  }
 
+  const renderQuestions = questions.map(item => {
+    return (
+      <Question
+        key={nanoid()}
+        id={item.id}
+        question={item.question}
+        answers={item.answers}
+        correctAnswer={item.correctAnswer}
+      />
+    )
+  })
 
   return (
     <main>
-      {/* {!hasGameStarted && <Intro />} */}
-      {hasGameStarted && <Game questions={questions} />}
+      {!hasGameStarted && <Intro startGame={handleGameStatus}/>}
+      {hasGameStarted && <div className="content container">
+        <form>
+          {hasGameStarted && renderQuestions}
+        </form>
+      </div>}
     </main>
   )
 } 

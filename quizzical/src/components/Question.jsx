@@ -1,27 +1,31 @@
 import React from "react"
+import { nanoid } from 'nanoid'
 
 export default function Question(props) {
-    // console.log('Question:', props.answers)
-
+    /*
+        Returns Question components which uses a random ID to select one of the radio buttons generated.
+        Random ID needs to be the same for the htmlFor property to avoid multiple selections.
+    */
     const answers = props.answers.map(item => {
+        const answerId = nanoid()
         return (
             <>
                 <input
-                    key={props.id} 
+                    key={nanoid()}
                     type="radio"
-                    id={item.id}
-                    name={item.id}
-                    value={item.answers}
+                    id={answerId}
+                    name={props.answers}
+                    value={item}
                 />
-                <label htmlFor={item.id} className="item">{item.answer}</label>   
-            </>         
+                <label htmlFor={answerId} className="answer">{item}</label>
+            </>
         )
     })
 
     return (
         <div className="question">
             <h3 className="question-setup">{props.question}</h3>
-            <fieldset>
+            <fieldset className="answers">
                 {answers}
             </fieldset>
         </div>
