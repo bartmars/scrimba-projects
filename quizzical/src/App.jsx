@@ -1,36 +1,35 @@
 // Check API documentation https://www.otriviata.com/
 
 import { useState, useEffect } from 'react'
-import { decode } from 'html-entities'
 import { nanoid } from 'nanoid'
+import { decode } from 'html-entities'
+
 
 import Intro from "./components/Intro"
-// import Game from "./components/Game"
 import Question from "./components/Question"
 
 export default function App() {
-
   const [hasGameStarted, setHasGameStarted] = useState(false)
-  const [formData, setFormData] = useState([])
+  const [questionsData, setQuestionsData] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(`https://www.otriviata.com/api.php?amount=5`)
       const data = await response.json()
 
-      setFormData(data.results.map(item => {
+      setQuestionsData(data.results.map(item => {
         const id = nanoid()
         const allAnswers = [...item.incorrect_answers, item.correct_answer]
         const correctAnswer = item.correct_answer
         const question = item.question
 
-        return {
+        return ({
           id: id,
           question: decode(question),
           answers: decode(allAnswers),
           correctAnswer: decode(correctAnswer),
           isSelected: false
-        }
+        })
       }))
 
     }
@@ -42,23 +41,24 @@ export default function App() {
   }
 
   function handleChange(event) {
-    // const {name, value} = event.target
-    // setFormData(prevFormData => {
-    //   return {
-    //     ...prevFormData,
-    //     [name]: value
-    //   }
+    // const {id} = event.target
+    // setQuestionsData(prevState => {
+    //    return {
+    //      ...prevState,
+    //      [name]: value
+    //    }
     // })
+
   }
 
   function handleSubmit(event) {
     event.preventDefault()
   }
 
-  const renderFormData = formData.map(item => {
+  const renderQuestionsData = questionsData.map(item => {
     return (
       <Question
-        key={nanoid()}
+        key={item.id}
         id={item.id}
         question={item.question}
         answers={item.answers}
@@ -74,7 +74,7 @@ export default function App() {
       {!hasGameStarted && <Intro startGame={handleGameStatus}/>}
       {hasGameStarted && <div className="content container">
         <form onSubmit={handleSubmit}>
-          {renderFormData}
+          {renderQuestionsData}
           <div className='center'>
             <button type="button" className="btn center">Check answers</button>
           </div>

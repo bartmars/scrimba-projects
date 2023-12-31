@@ -1,6 +1,7 @@
 import React from "react"
 import { nanoid } from 'nanoid'
 
+
 export default function Question(props) {
     /*
         Returns Question components which uses a random ID to select one of the radio buttons generated.
@@ -12,7 +13,7 @@ export default function Question(props) {
         return (
             <>
                 <input
-                    key={nanoid()}
+                    key={answerId}
                     type="radio"
                     id={answerId}
                     name={props.answers}
