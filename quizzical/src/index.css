@@ -12,21 +12,22 @@ body {
   background-position: top right, bottom left;
   background-repeat: no-repeat, no-repeat;
 }
-
+/* 
 .content {
-  height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
-}
+} */
 
 .container {
-  padding: 2.5em 5em;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   width: 34.375em;
+  max-width: 80%;
+  height: 100vh;
   margin: auto;
 }
 
@@ -44,6 +45,10 @@ body {
   border: none;
   color: #FFF;
   margin-top: 2em;
+}
+
+.center {
+  text-align: center;
 }
 
 .question {
@@ -86,13 +91,15 @@ body {
 .answers input[type="radio"]:checked+label,
 .answers input[type="radio"]:focus+label {
   background-color: #D6DBF5;
+  border: 1px solid #D6DBF5;
 }
 
 .answer-correct {
   background-color: #94D7A2;
-
+  border: 1px solid #94D7A2;
 }
 
 .answer-wrong {
   background-color: #F8BCBC;
+  border: 1px solid #F8BCBC;
 }

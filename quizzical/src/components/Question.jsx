@@ -8,6 +8,7 @@ export default function Question(props) {
     */
     const answers = props.answers.map(item => {
         const answerId = nanoid()
+        const checked = item.isSelected === item
         return (
             <>
                 <input
@@ -16,6 +17,8 @@ export default function Question(props) {
                     id={answerId}
                     name={props.answers}
                     value={item}
+                    checked={checked}
+                    onChange={props.handleChange}
                 />
                 <label htmlFor={answerId} className="answer">{item}</label>
             </>
