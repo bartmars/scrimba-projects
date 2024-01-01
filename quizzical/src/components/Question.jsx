@@ -13,15 +13,15 @@ export default function Question(props) {
         return (
             <>
                 <input
-                    key={answerId}
+                    key={nanoid()}
                     type="radio"
-                    id={answerId}
+                    id={answerId} // was: answerId
                     name={props.answers}
                     value={item}
                     checked={checked}
                     onChange={props.handleChange}
                 />
-                <label htmlFor={answerId} className="answer">{item}</label>
+                <label key={nanoid()} htmlFor={answerId} className="answer">{item}</label>
             </>
         )
     })

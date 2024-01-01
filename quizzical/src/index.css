@@ -12,13 +12,6 @@ body {
   background-position: top right, bottom left;
   background-repeat: no-repeat, no-repeat;
 }
-/* 
-.content {
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
 
 .container {
   display: flex;
@@ -81,7 +74,7 @@ body {
 }
 
 .answers input[type="radio"] {
-  display: none;
+  opacity: 0;
 }
 
 .answer-label {

@@ -11,48 +11,70 @@ import Question from "./components/Question"
 export default function App() {
   const [hasGameStarted, setHasGameStarted] = useState(false)
   const [questionsData, setQuestionsData] = useState([])
+  const [score, setScore] = useState(0)
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`https://www.otriviata.com/api.php?amount=5`)
-      const data = await response.json()
-
-      setQuestionsData(data.results.map(item => {
-        const id = nanoid()
-        const allAnswers = [...item.incorrect_answers, item.correct_answer]
-        const correctAnswer = item.correct_answer
-        const question = item.question
-
-        return ({
-          id: id,
-          question: decode(question),
-          answers: decode(allAnswers),
-          correctAnswer: decode(correctAnswer),
-          isSelected: false
-        })
-      }))
-
+      try {
+        const response = await fetch(`https://www.otriviata.com/api.php?amount=5`)
+        const data = await response.json()
+  
+        setQuestionsData(data.results.map(item => {
+          const id = nanoid()
+          const allAnswers = [...item.incorrect_answers, item.correct_answer]
+          const correctAnswer = item.correct_answer
+          const question = item.question
+  
+          return ({
+            id: id,
+            question: question,
+            answers: allAnswers,
+            correctAnswer: correctAnswer,
+            isSelected: false
+          })
+        }))
+      } catch (error) {
+        console.error('Error while fetching data from API:', error);
+      }
     }
     fetchData()
-  }, [hasGameStarted])
+  }, [])
+
+  useEffect(() => {
+    /* Needs this to accurately see the currect state of score */
+    console.log(score)
+  }, [score])
 
   function handleGameStatus() {
     setHasGameStarted(prevHasGameStarted => !prevHasGameStarted)
   }
 
-  function handleChange(event) {
-    // const {id} = event.target
-    // setQuestionsData(prevState => {
-    //    return {
-    //      ...prevState,
-    //      [name]: value
-    //    }
-    // })
+  function handleChange(event, array) {
+    const {id, name, type, value, checked} = event.target
+    
 
+
+
+
+    console.log('id:', id, '\nname:', name, '\ntype:', type, '\nvalue:', value, '\nchecked:', checked)
   }
 
   function handleSubmit(event) {
     event.preventDefault()
+
+    /*
+      Write a function that:
+      - Iterates over every given answer,
+      - Checks if the answer is correct_answer,
+      - If it is the correct_answer, add +1 to score state
+      - If it is not the correct_answer, do nothing
+    */
+
+    // questionsData.map(item => {
+    //   if (value === item.correctAnswer) {
+    //     setScore(prevScore => prevScore + 1)
+    //   }
+    // })
   }
 
   const renderQuestionsData = questionsData.map(item => {
