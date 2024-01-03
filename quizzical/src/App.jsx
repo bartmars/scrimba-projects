@@ -20,17 +20,20 @@ export default function App() {
         const data = await response.json()
   
         setQuestionsData(data.results.map(item => {
-          const id = nanoid()
           const allAnswers = [...item.incorrect_answers, item.correct_answer]
-          const correctAnswer = item.correct_answer
-          const question = item.question
   
           return ({
-            id: id,
-            question: question,
-            answers: allAnswers,
-            correctAnswer: correctAnswer,
-            isSelected: false
+            id: nanoid(),
+            question: item.question,
+            answers: allAnswers.map(answer => {
+              return {
+                id: nanoid(),
+                answer: answer
+              }
+            }),
+            isSelected: false,
+            correctAnswer: item.correct_answer,
+            selectedAnswer: ""
           })
         }))
       } catch (error) {
@@ -40,41 +43,39 @@ export default function App() {
     fetchData()
   }, [])
 
-  useEffect(() => {
-    /* Needs this to accurately see the currect state of score */
-    console.log(score)
-  }, [score])
+  console.log(questionsData)
 
   function handleGameStatus() {
     setHasGameStarted(prevHasGameStarted => !prevHasGameStarted)
   }
 
-  function handleChange(event, array) {
+  function handleChange(event) {
     const {id, name, type, value, checked} = event.target
-    
 
-
-
-
-    console.log('id:', id, '\nname:', name, '\ntype:', type, '\nvalue:', value, '\nchecked:', checked)
+    setQuestionsData(prevQuestionsData => {
+      const updatedQuestion = prevQuestionsData.map(question => {
+        if (question.correctAnswer === value) {
+          return {
+            ...question,
+            selectedAnswer: value
+          }
+        } else {
+          return question
+        }
+      })
+      return updatedQuestion
+    })
   }
 
   function handleSubmit(event) {
     event.preventDefault()
 
-    /*
-      Write a function that:
-      - Iterates over every given answer,
-      - Checks if the answer is correct_answer,
-      - If it is the correct_answer, add +1 to score state
-      - If it is not the correct_answer, do nothing
-    */
-
-    // questionsData.map(item => {
-    //   if (value === item.correctAnswer) {
-    //     setScore(prevScore => prevScore + 1)
-    //   }
-    // })
+    const updatedScore = questionsData.map(question => {
+      if (question.selectedAnswer !== "") {
+        setScore(prevScore => prevScore + 1)
+      }
+    })
+    return updatedScore
   }
 
   const renderQuestionsData = questionsData.map(item => {
@@ -97,8 +98,9 @@ export default function App() {
       {hasGameStarted && <div className="content container">
         <form onSubmit={handleSubmit}>
           {renderQuestionsData}
+          <p>You scored {score} out of {questionsData.length}</p>
           <div className='center'>
-            <button type="button" className="btn center">Check answers</button>
+            <button type="button" className="btn center" onClick={handleSubmit}>Check answers</button>
           </div>
         </form>
       </div>}

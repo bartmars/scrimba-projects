@@ -8,20 +8,18 @@ export default function Question(props) {
         Random ID needs to be the same for the htmlFor property to avoid multiple selections.
     */
     const answers = props.answers.map(item => {
-        const answerId = nanoid()
-        const checked = item.isSelected === item
         return (
             <>
                 <input
-                    key={nanoid()}
+                    key={item.id}
                     type="radio"
-                    id={answerId} // was: answerId
+                    id={item.id}
                     name={props.answers}
-                    value={item}
-                    checked={checked}
-                    onChange={props.handleChange}
+                    value={item.answer}
+                    checked={item.isSelected === item}
+                    onChange={(event) => props.handleChange(event)}
                 />
-                <label key={nanoid()} htmlFor={answerId} className="answer">{item}</label>
+                <label key={nanoid()} htmlFor={item.id} className="answer">{item.answer}</label>
             </>
         )
     })
