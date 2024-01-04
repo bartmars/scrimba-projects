@@ -29,6 +29,10 @@ body {
   margin: 0;
 }
 
+p {
+  margin-bottom: 0;
+}
+
 .btn {
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
@@ -62,27 +66,22 @@ body {
 }
 
 .answer {
+  display: inline-block;
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
   border-radius: 0.5em;
   color: #293264;
   padding: 0.5em 1.5em;
-  display: inline-block;
   cursor: pointer;
   border: #4D5B9E 1px solid;
   margin: 0.5em;
 }
 
-.answers input[type="radio"] {
-  opacity: 0;
+.answer input {
+  display: none;
 }
-
-.answer-label {
-  display: inline-block;
-}
-
-.answers input[type="radio"]:checked+label,
-.answers input[type="radio"]:focus+label {
+.answer input:focus+label,
+.answer input:checked+label {
   background-color: #D6DBF5;
   border: 1px solid #D6DBF5;
 }

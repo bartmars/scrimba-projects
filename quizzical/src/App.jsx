@@ -1,38 +1,37 @@
-// Check API documentation https://www.otriviata.com/
-
 import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import { decode } from 'html-entities'
-
 
 import Intro from "./components/Intro"
 import Question from "./components/Question"
 
 export default function App() {
   const [hasGameStarted, setHasGameStarted] = useState(false)
+  const [hasGameEnded, setHasGameEnded] = useState(false)
   const [questionsData, setQuestionsData] = useState([])
   const [score, setScore] = useState(0)
 
   useEffect(() => {
+    // TODO: Prevent initial API request to retrieve questions before starting quiz
     const fetchData = async () => {
       try {
         const response = await fetch(`https://www.otriviata.com/api.php?amount=5`)
         const data = await response.json()
   
         setQuestionsData(data.results.map(item => {
-          const allAnswers = [...item.incorrect_answers, item.correct_answer]
+          const allAnswers = ([...item.incorrect_answers, item.correct_answer]).sort((a, b) => Math.random() - 0.5)
   
           return ({
-            id: nanoid(),
-            question: item.question,
-            answers: allAnswers.map(answer => {
+            id: item.id,
+            question: decode(item.question),
+            answers: allAnswers.map((answer, index) => {
               return {
-                id: nanoid(),
-                answer: answer
+                id: item.id + index,
+                answer: decode(answer)
               }
             }),
             isSelected: false,
-            correctAnswer: item.correct_answer,
+            correctAnswer: decode(item.correct_answer),
             selectedAnswer: ""
           })
         }))
@@ -41,29 +40,27 @@ export default function App() {
       }
     }
     fetchData()
-  }, [])
+  }, [hasGameStarted])
 
-  console.log(questionsData)
+  useEffect(() => {
+    console.log('questionsData:', questionsData)
+  }, [questionsData])
 
   function handleGameStatus() {
     setHasGameStarted(prevHasGameStarted => !prevHasGameStarted)
   }
 
-  function handleChange(event) {
-    const {id, name, type, value, checked} = event.target
-
+  /* IT WORKS!!! */
+  function handleChange(event, questionId) {
+    const {name, value} = event.target
     setQuestionsData(prevQuestionsData => {
-      const updatedQuestion = prevQuestionsData.map(question => {
-        if (question.correctAnswer === value) {
-          return {
-            ...question,
-            selectedAnswer: value
-          }
-        } else {
-          return question
-        }
+      return prevQuestionsData.map(question => {
+        return question.id === questionId ? {
+          ...question,
+          isSelected: true,
+          selectedAnswer: value
+        } : question
       })
-      return updatedQuestion
     })
   }
 
@@ -72,16 +69,21 @@ export default function App() {
 
     const updatedScore = questionsData.map(question => {
       if (question.selectedAnswer !== "") {
-        setScore(prevScore => prevScore + 1)
+        if (question.selectedAnswer === question.correct_answer) {
+          setScore(prevScore => prevScore + 1)
+        }
       }
     })
+
+    setHasGameEnded(true)
     return updatedScore
   }
 
   const renderQuestionsData = questionsData.map(item => {
+    // TODO: answers are not highlighted when selected
     return (
       <Question
-        key={item.id}
+        key={nanoid()}
         id={item.id}
         question={item.question}
         answers={item.answers}
@@ -95,10 +97,10 @@ export default function App() {
   return (
     <main>
       {!hasGameStarted && <Intro startGame={handleGameStatus}/>}
-      {hasGameStarted && <div className="content container">
+      {hasGameStarted && <div className="container">
         <form onSubmit={handleSubmit}>
           {renderQuestionsData}
-          <p>You scored {score} out of {questionsData.length}</p>
+          {hasGameEnded && <p className="center">You scored {score} out of {questionsData.length}</p>}
           <div className='center'>
             <button type="button" className="btn center" onClick={handleSubmit}>Check answers</button>
           </div>

@@ -3,23 +3,24 @@ import { nanoid } from 'nanoid'
 
 
 export default function Question(props) {
-    /*
-        Returns Question components which uses a random ID to select one of the radio buttons generated.
-        Random ID needs to be the same for the htmlFor property to avoid multiple selections.
-    */
     const answers = props.answers.map(item => {
+        const styles = {
+            backgroundColor: props.selectedAnswer ? "#D6DBF5" : "transparent"
+        }
         return (
             <>
-                <input
-                    key={item.id}
-                    type="radio"
-                    id={item.id}
-                    name={props.answers}
-                    value={item.answer}
-                    checked={item.isSelected === item}
-                    onChange={(event) => props.handleChange(event)}
-                />
-                <label key={nanoid()} htmlFor={item.id} className="answer">{item.answer}</label>
+                <label key={nanoid()} htmlFor={item.id} className="answer" style={styles}>
+                    {item.answer}
+                    <input
+                        key={item.id}
+                        type="radio"
+                        id={item.id}
+                        name={props.answers}
+                        value={item.answer}
+                        checked={props.selectedAnswer === item.answer}
+                        onChange={event => props.handleChange(event, props.id)}
+                    />
+                </label>
             </>
         )
     })
