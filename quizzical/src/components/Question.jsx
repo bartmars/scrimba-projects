@@ -1,24 +1,32 @@
-import React from "react"
+/* eslint-disable react/prop-types */
+import React, { useState } from "react"
 import { nanoid } from 'nanoid'
-
 
 export default function Question(props) {
     const answers = props.answers.map(item => {
         const styles = {
-            backgroundColor: props.selectedAnswer ? "#D6DBF5" : "transparent"
+            backgroundColor: 
+                item.isSelected && item.isCorrect ? "#94D7A2" : /* correct answer */
+                item.isSelected && !item.isCorrect ? "#F8BCBC" : /* wrong answer */
+                item.isSelected ? "#D6DBF5" : "" /* selected answer */
         }
+
+
+
         return (
             <>
                 <label key={nanoid()} htmlFor={item.id} className="answer" style={styles}>
                     {item.answer}
                     <input
-                        key={item.id}
+                        key={nanoid()}
                         type="radio"
                         id={item.id}
-                        name={props.answers}
+                        name={props.id}
                         value={item.answer}
-                        checked={props.selectedAnswer === item.answer}
-                        onChange={event => props.handleChange(event, props.id)}
+                        onClick={event => props.handleClick(event, props.id)}
+                        // checked={props.answers}
+                        // onChange={event => props.handleChange(event, item.id)}
+                        // onClick={event => props.checkAnswer(event)}
                     />
                 </label>
             </>
@@ -28,7 +36,7 @@ export default function Question(props) {
     return (
         <div className="question">
             <h3 className="question-setup">{props.question}</h3>
-            <fieldset className="answers">
+            <fieldset key={nanoid()} className="answers">
                 {answers}
             </fieldset>
         </div>

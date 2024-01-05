@@ -7,7 +7,7 @@ import Question from "./components/Question"
 
 export default function App() {
   const [hasGameStarted, setHasGameStarted] = useState(false)
-  const [hasGameEnded, setHasGameEnded] = useState(false)
+  const [hasGameEnded, setHasGameEnded] = useState(true)
   const [questionsData, setQuestionsData] = useState([])
   const [score, setScore] = useState(0)
 
@@ -17,22 +17,27 @@ export default function App() {
       try {
         const response = await fetch(`https://www.otriviata.com/api.php?amount=5`)
         const data = await response.json()
-  
+
         setQuestionsData(data.results.map(item => {
+          // eslint-disable-next-line no-unused-vars
           const allAnswers = ([...item.incorrect_answers, item.correct_answer]).sort((a, b) => Math.random() - 0.5)
-  
+
           return ({
             id: item.id,
             question: decode(item.question),
             answers: allAnswers.map((answer, index) => {
               return {
+                // TODO: Perhaps answer related properties are better placed here.
+                // Requires rewriting of some functions
                 id: item.id + index,
-                answer: decode(answer)
+                answer: decode(answer),
+                isSelected: false,
+                isCorrect: answer === decode(item.correct_answer)
               }
             }),
-            isSelected: false,
-            correctAnswer: decode(item.correct_answer),
-            selectedAnswer: ""
+            // correctAnswer: decode(item.correct_answer),
+            // selectedAnswer: "",
+            // isCorrect: false
           })
         }))
       } catch (error) {
@@ -42,37 +47,41 @@ export default function App() {
     fetchData()
   }, [hasGameStarted])
 
-  useEffect(() => {
-    console.log('questionsData:', questionsData)
-  }, [questionsData])
+  console.log(questionsData)
 
   function handleGameStatus() {
+    setHasGameEnded(prevHasGameEnded => !prevHasGameEnded)
     setHasGameStarted(prevHasGameStarted => !prevHasGameStarted)
   }
 
-  /* IT WORKS!!! */
-  function handleChange(event, questionId) {
-    const {name, value} = event.target
+
+  function handleClick(event) {
+    // TODO: Find a way to have one answer selected at a time
+    const {name, id, checked, type, value} = event.target
     setQuestionsData(prevQuestionsData => {
       return prevQuestionsData.map(question => {
-        return question.id === questionId ? {
+        return {
           ...question,
-          isSelected: true,
-          selectedAnswer: value
-        } : question
+          answers: question.answers.map(answer => {
+            return id === answer.id ? {
+              ...answer,
+              isSelected: !answer.isSelected
+            } : answer
+          })
+        }
       })
     })
   }
 
-  function handleSubmit(event) {
+  function handleSubmit() {
     event.preventDefault()
 
     const updatedScore = questionsData.map(question => {
-      if (question.selectedAnswer !== "") {
-        if (question.selectedAnswer === question.correct_answer) {
+      return question.answers.map(answer => {
+        if (answer.isSelected && answer.isCorrect) {
           setScore(prevScore => prevScore + 1)
         }
-      }
+      })
     })
 
     setHasGameEnded(true)
@@ -80,16 +89,15 @@ export default function App() {
   }
 
   const renderQuestionsData = questionsData.map(item => {
-    // TODO: answers are not highlighted when selected
+    /* TODO: Need to map over answers = array */
     return (
       <Question
         key={nanoid()}
         id={item.id}
         question={item.question}
         answers={item.answers}
-        correctAnswer={item.correctAnswer}
-        isSelected={item.isSelected}
-        handleChange={handleChange}
+        selectedAnswer={item.answers}
+        handleClick={handleClick}
       />
     )
   })
@@ -98,11 +106,12 @@ export default function App() {
     <main>
       {!hasGameStarted && <Intro startGame={handleGameStatus}/>}
       {hasGameStarted && <div className="container">
-        <form onSubmit={handleSubmit}>
+        <form>
           {renderQuestionsData}
           {hasGameEnded && <p className="center">You scored {score} out of {questionsData.length}</p>}
           <div className='center'>
-            <button type="button" className="btn center" onClick={handleSubmit}>Check answers</button>
+            {!hasGameEnded && <button type="button" className="btn center" onClick={handleSubmit}>Check answers</button>}
+            {hasGameEnded && <button type="button" className="btn center" onClick={handleGameStatus}>Reset game</button>}
           </div>
         </form>
       </div>}
