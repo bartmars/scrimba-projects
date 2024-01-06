@@ -20,6 +20,7 @@ export default function App() {
         const data = await response.json()
 
         setQuestionsData(data.results.map(item => {
+          // eslint-disable-next-line no-unused-vars
           const allAnswers = ([...item.incorrect_answers, item.correct_answer]).sort((a, b) => Math.random() - 0.5)
 
           return ({
