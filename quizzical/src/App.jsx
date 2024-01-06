@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import { decode } from 'html-entities'
+import './index.css'
 
 import Intro from "./components/Intro"
 import Question from "./components/Question"
