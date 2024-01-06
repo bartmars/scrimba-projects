@@ -19,7 +19,6 @@ export default function App() {
         const data = await response.json()
 
         setQuestionsData(data.results.map(item => {
-          // eslint-disable-next-line no-unused-vars
           const allAnswers = ([...item.incorrect_answers, item.correct_answer]).sort((a, b) => Math.random() - 0.5)
 
           return ({
@@ -27,17 +26,12 @@ export default function App() {
             question: decode(item.question),
             answers: allAnswers.map((answer, index) => {
               return {
-                // TODO: Perhaps answer related properties are better placed here.
-                // Requires rewriting of some functions
                 id: item.id + index,
                 answer: decode(answer),
                 isSelected: false,
                 isCorrect: answer === decode(item.correct_answer)
               }
-            }),
-            // correctAnswer: decode(item.correct_answer),
-            // selectedAnswer: "",
-            // isCorrect: false
+            })
           })
         }))
       } catch (error) {
@@ -56,8 +50,7 @@ export default function App() {
 
 
   function handleClick(event) {
-    // TODO: Find a way to have one answer selected at a time
-    const {name, id, checked, type, value} = event.target
+    const {id} = event.target
     setQuestionsData(prevQuestionsData => {
       return prevQuestionsData.map(question => {
         return {
@@ -89,15 +82,14 @@ export default function App() {
   }
 
   const renderQuestionsData = questionsData.map(item => {
-    /* TODO: Need to map over answers = array */
     return (
       <Question
         key={nanoid()}
         id={item.id}
         question={item.question}
         answers={item.answers}
-        selectedAnswer={item.answers}
         handleClick={handleClick}
+        hasGameEnded={hasGameEnded}
       />
     )
   })
@@ -105,16 +97,14 @@ export default function App() {
   return (
     <main>
       {!hasGameStarted && <Intro startGame={handleGameStatus}/>}
-      {hasGameStarted && <div className="container">
-        <form>
+      {hasGameStarted && <form className="container">
           {renderQuestionsData}
           {hasGameEnded && <p className="center">You scored {score} out of {questionsData.length}</p>}
           <div className='center'>
             {!hasGameEnded && <button type="button" className="btn center" onClick={handleSubmit}>Check answers</button>}
             {hasGameEnded && <button type="button" className="btn center" onClick={handleGameStatus}>Reset game</button>}
           </div>
-        </form>
-      </div>}
+        </form>}
     </main>
   )
 } 
