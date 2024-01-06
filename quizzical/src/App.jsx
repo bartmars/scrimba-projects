@@ -43,8 +43,6 @@ export default function App() {
     fetchData()
   }, [hasGameStarted])
 
-  console.log(questionsData)
-
   function handleGameStatus() {
     setHasGameEnded(prevHasGameEnded => !prevHasGameEnded)
     setHasGameStarted(prevHasGameStarted => !prevHasGameStarted)
