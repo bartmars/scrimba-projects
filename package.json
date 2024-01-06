@@ -9,7 +9,12 @@
         "build:unit-converter": "npm --prefix unit-converter run build",
         "build:oldagram": "npm --prefix oldagram run build",
         "build:restaurant-ordering": "npm --prefix restaurant-ordering run build",
-        "build:learning-blog": "npm --prefix learning-blog run build"
+        "build:learning-blog": "npm --prefix learning-blog run build",
+        "build:tindog": "npm --prefix tindog run build",
+        "build:color-picker": "npm --prefix color-picker run build",
+        "build:movie-watchlist": "npm --prefix movie-watchlist run build",
+        "build:business-card": "npm --prefix business-card run build",
+        "build:quizzical": "npm --prefix quizzical run build"
     },
     "dependencies": {
         "firebase": "^10.4.0",
