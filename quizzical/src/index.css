@@ -17,11 +17,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   width: 34.375em;
   max-width: 80%;
-  height: 100vh;
-  margin: auto;
+  margin: 2em auto;
 }
 
 .title {
