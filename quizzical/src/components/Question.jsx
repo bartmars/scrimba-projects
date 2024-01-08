@@ -22,7 +22,7 @@ export default function Question(props) {
                     id={item.id}
                     name="question"
                     value={item.answer}
-                    onChange={event => props.handleChange(event)}
+                    onChange={event => props.handleChange(event, item.id)}
                     checked={item.isSelected}
                     disabled={props.hasGameEnded}
                 />

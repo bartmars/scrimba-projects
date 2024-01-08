@@ -31,7 +31,7 @@ export default function App() {
                 id: item.id + index,
                 answer: decode(answer),
                 isSelected: false,
-                isCorrect: answer === decode(item.correct_answer)
+                isCorrect: decode(answer) === decode(item.correct_answer)
               }
             })
           })
@@ -42,6 +42,10 @@ export default function App() {
     }
     fetchData()
   }, [hasGameStarted])
+
+  useEffect(() => {
+    console.log(questionsData)
+  }, [questionsData])
 
   function handleGameStatus() {
     setHasGameEnded(prevHasGameEnded => !prevHasGameEnded)
@@ -67,17 +71,16 @@ export default function App() {
   //   })
   // }
 
-
-  
+  /* same function but less complex in my opinion */
   function handleChange(event) {
     const {id} = event.target
     console.log(questionsData[1].answers[0].isSelected)
     setQuestionsData(prevQuestionsData => prevQuestionsData.map(object => ({
       ...object,
-      answers: id.includes(object.id) ? object.answers.map(item => ({
+      answers: object.answers.map(item => ({
         ...item,
         isSelected: !item.isSelected
-      })) : object
+      }))
     })))
   }
 
