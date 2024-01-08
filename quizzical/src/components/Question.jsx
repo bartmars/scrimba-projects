@@ -22,8 +22,9 @@ export default function Question(props) {
                     id={item.id}
                     name="question"
                     value={item.answer}
-                    onChange={event => props.handleClick(event, props.id)}
-                    checked={"question" === item.answer}
+                    onChange={event => props.handleChange(event)}
+                    checked={item.isSelected}
+                    disabled={props.hasGameEnded}
                 />
             </label>
         )

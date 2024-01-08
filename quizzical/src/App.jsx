@@ -48,25 +48,40 @@ export default function App() {
     setHasGameStarted(prevHasGameStarted => !prevHasGameStarted)
   }
 
+/* This works! */
+  // function handleClick(event) {
+  //   const {id, checked} = event.target
+  //   setQuestionsData(prevQuestionsData => {
+  //     return prevQuestionsData.map(question => {
+  //       return {
+  //         ...question,
+  //         answers: question.answers.map(answer => {
+  //           console.log(checked)
+  //           return id === answer.id ? {
+  //             ...answer,
+  //             isSelected: !answer.isSelected
+  //           } : answer
+  //         })
+  //       }
+  //     })
+  //   })
+  // }
 
-  function handleClick(event) {
+
+  
+  function handleChange(event) {
     const {id} = event.target
-    setQuestionsData(prevQuestionsData => {
-      return prevQuestionsData.map(question => {
-        return {
-          ...question,
-          answers: question.answers.map(answer => {
-            return id === answer.id ? {
-              ...answer,
-              isSelected: !answer.isSelected
-            } : answer
-          })
-        }
-      })
-    })
+    console.log(questionsData[1].answers[0].isSelected)
+    setQuestionsData(prevQuestionsData => prevQuestionsData.map(object => ({
+      ...object,
+      answers: id.includes(object.id) ? object.answers.map(item => ({
+        ...item,
+        isSelected: !item.isSelected
+      })) : object
+    })))
   }
 
-  function handleSubmit() {
+  function handleSubmit(event) {
     event.preventDefault()
 
     const updatedScore = questionsData.map(question => {
@@ -88,7 +103,7 @@ export default function App() {
         id={item.id}
         question={item.question}
         answers={item.answers}
-        handleClick={handleClick}
+        handleChange={handleChange}
         hasGameEnded={hasGameEnded}
       />
     )
