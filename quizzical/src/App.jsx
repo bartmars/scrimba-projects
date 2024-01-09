@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { nanoid } from 'nanoid'
 import { decode } from 'html-entities'
-import './index.css'
 
 import Intro from "./components/Intro"
 import Question from "./components/Question"
@@ -24,7 +23,7 @@ export default function App() {
           const allAnswers = ([...item.incorrect_answers, item.correct_answer]).sort((a, b) => Math.random() - 0.5)
 
           return ({
-            id: item.id,
+            id: (item.id).toString(),
             question: decode(item.question),
             answers: allAnswers.map((answer, index) => {
               return {
@@ -44,7 +43,7 @@ export default function App() {
   }, [hasGameStarted])
 
   useEffect(() => {
-    console.log(questionsData)
+      console.log(questionsData[0])
   }, [questionsData])
 
   function handleGameStatus() {
@@ -73,14 +72,17 @@ export default function App() {
 
   /* same function but less complex in my opinion */
   function handleChange(event) {
-    const {id} = event.target
-    console.log(questionsData[1].answers[0].isSelected)
+    const {id, value} = event.target
+    
+    // console.log(`${(questionsData[0].id).toString()} and ${event.target.id} are of type ${typeof(questionsData[0].id)} and ${typeof(event.target.id)}.`)
+    // console.log('Does answer ID contain question ID:', id.includes(questionsData[0].id))
+        
     setQuestionsData(prevQuestionsData => prevQuestionsData.map(object => ({
       ...object,
-      answers: object.answers.map(item => ({
+      answers: object.id ? object.answers.map(item => ({
         ...item,
-        isSelected: !item.isSelected
-      }))
+        isSelected: value === item.answer ? !item.isSelected : item.isSelected
+      })) : object
     })))
   }
 
