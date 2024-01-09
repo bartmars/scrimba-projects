@@ -87,18 +87,18 @@ p {
 .answer input {
   display: none;
 }
-.answer input:focus+label,
-.answer input:checked+label {
+
+.answer label:checked {
   background-color: #D6DBF5;
   border: 1px solid #D6DBF5;
 }
 
-.answer-correct {
+.answer-correct input:checked+label {
   background-color: #94D7A2;
   border: 1px solid #94D7A2;
 }
 
-.answer-wrong {
+.answer-wrong input:checked+label {
   background-color: #F8BCBC;
   border: 1px solid #F8BCBC;
 }

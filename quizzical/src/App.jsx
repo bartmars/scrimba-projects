@@ -42,40 +42,17 @@ export default function App() {
     fetchData()
   }, [hasGameStarted])
 
-  useEffect(() => {
-      console.log(questionsData[0])
-  }, [questionsData])
+  // useEffect(() => {
+  //     console.log(questionsData[0])
+  // }, [questionsData])
 
   function handleGameStatus() {
     setHasGameEnded(prevHasGameEnded => !prevHasGameEnded)
     setHasGameStarted(prevHasGameStarted => !prevHasGameStarted)
   }
 
-/* This works! */
-  // function handleClick(event) {
-  //   const {id, checked} = event.target
-  //   setQuestionsData(prevQuestionsData => {
-  //     return prevQuestionsData.map(question => {
-  //       return {
-  //         ...question,
-  //         answers: question.answers.map(answer => {
-  //           console.log(checked)
-  //           return id === answer.id ? {
-  //             ...answer,
-  //             isSelected: !answer.isSelected
-  //           } : answer
-  //         })
-  //       }
-  //     })
-  //   })
-  // }
-
-  /* same function but less complex in my opinion */
   function handleChange(event) {
-    const {id, value} = event.target
-    
-    // console.log(`${(questionsData[0].id).toString()} and ${event.target.id} are of type ${typeof(questionsData[0].id)} and ${typeof(event.target.id)}.`)
-    // console.log('Does answer ID contain question ID:', id.includes(questionsData[0].id))
+    const {value} = event.target
         
     setQuestionsData(prevQuestionsData => prevQuestionsData.map(object => ({
       ...object,
