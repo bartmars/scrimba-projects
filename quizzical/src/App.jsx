@@ -23,11 +23,11 @@ export default function App() {
           const allAnswers = ([...item.incorrect_answers, item.correct_answer]).sort((a, b) => Math.random() - 0.5)
 
           return ({
-            id: (item.id).toString(),
+            id: nanoid(5),
             question: decode(item.question),
             answers: allAnswers.map((answer, index) => {
               return {
-                id: item.id + index,
+                id: nanoid(5),
                 answer: decode(answer),
                 isSelected: false,
                 isCorrect: decode(answer) === decode(item.correct_answer)
@@ -42,17 +42,17 @@ export default function App() {
     fetchData()
   }, [hasGameStarted])
 
-  // useEffect(() => {
-  //     console.log(questionsData[0])
-  // }, [questionsData])
+  useEffect(() => {
+      console.log(questionsData[0])
+  }, [questionsData])
 
   function handleGameStatus() {
     setHasGameEnded(prevHasGameEnded => !prevHasGameEnded)
     setHasGameStarted(prevHasGameStarted => !prevHasGameStarted)
   }
 
-  function handleChange(event) {
-    const {value} = event.target
+  function handleChange(event, questionId) {
+    const {id, checked, value} = event.target
         
     setQuestionsData(prevQuestionsData => prevQuestionsData.map(object => ({
       ...object,

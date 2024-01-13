@@ -1,6 +1,5 @@
 import React from "react"
 import { nanoid } from "nanoid"
-// import "../index.css"
 
 export default function Question(props) {
     const answers = props.answers.map(item => {
@@ -21,16 +20,16 @@ export default function Question(props) {
         return (
             /* 
                 Don't use id attribute in input element and htmlFor attribute in label 
-                element when wrapping input inside the label 
+                element when wrapping input element, inside the label element
             */
             <label key={nanoid()} className="answer" style={styles}>
                 <input
                     name={props.id}
                     value={item.answer}
-                    onChange={(event) => props.handleChange(event)}
-                    checked={item.id === event.target.value}
+                    onChange={(event) => props.handleChange(event, props.id)}
+                    // onChange={(event) => console.log(item.id)}
+                    checked={props.id === item.answer}
                     disabled={props.hasGameEnded}
-                    className="answer"
                     type="radio"
                 />
                 {item.answer}
@@ -40,7 +39,7 @@ export default function Question(props) {
 
     return (
         <div className="question">
-            <h3>{props.question}</h3>
+            <h2>{props.question}</h2>
             <fieldset key={nanoid()} className="answers">
                 {answers}
             </fieldset>
