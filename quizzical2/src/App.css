@@ -1,0 +1,30 @@
+.radio-input {
+  visibility: hidden;
+}
+
+.radio-label {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  border-radius: 0.5em;
+  color: #293264;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  border: #4D5B9E;
+  margin: 0.5em;
+}
+
+.radio-input:checked ~ label {
+  background-color: #D6DBF5;
+  border: 1px solid #D6DBF5;
+}
+
+.correct-input:checked ~ label {
+  background-color: #D6DBF5;
+  border: 1px solid #D6DBF5;
+}
+
+.wrong-input:checked ~ label {
+  background-color: #D6DBF5;
+  border: 1px solid #D6DBF5;
+}

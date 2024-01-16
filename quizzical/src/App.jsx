@@ -25,7 +25,7 @@ export default function App() {
           return ({
             id: nanoid(5),
             question: decode(item.question),
-            answers: allAnswers.map((answer, index) => {
+            answers: allAnswers.map((answer) => {
               return {
                 id: nanoid(5),
                 answer: decode(answer),
