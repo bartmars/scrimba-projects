@@ -17,12 +17,12 @@ function App() {
         const data = await response.json()
 
         setQuestionsData(data.results.map(item => {
-          const allAnswers = [...decode(item.incorrect_answers), decode(item.correct_answer)]
+          const allAnswers = [...item.incorrect_answers, item.correct_answer]
 
           return ({
             id: item.id,
             question: decode(item.question),
-            answers: allAnswers,
+            answers: decode(allAnswers),
             correctAnswer: decode(item.correct_answer),
             score: 0
           })
@@ -40,15 +40,17 @@ function App() {
 
   function handleChange(event) {
     const {id, type, value, checked} = event.target 
+    console.log(event.target)
     
-    
-    
+
     // search for chosen answer in answers and match it with correctAnswer
   }
 
   function handleSubmit() {
     event.preventDefault()
     console.log(event.target)
+
+
   }
 
   const renderQuestionsData = questionsData?.map(object => (
