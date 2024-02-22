@@ -1,13 +1,11 @@
 import React from "react"
-import './Badge.module.css'
+import classNames from "classnames"
 
 export default function badge({ children, type, color }) {
-    let selectedType = type && `${type}`
-    let selectedColor = color && `${color}`
-    const combinedClasses = `${selectedType} ${selectedColor}`
+    const allClasses = classNames(type, color)
 
     return (
-        <div className={combinedClasses}>
+        <div className={allClasses}>
             {children}
         </div>
     )

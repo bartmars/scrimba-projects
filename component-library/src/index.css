@@ -1,68 +1,67 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap')
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 0.875rem;
+}
+
+section {
+  margin-bottom: 1em;
   display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  gap: 0.5em;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+.square,
+.pill {
+  display: inline-block;
+  padding: 2px 12px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+.pill {
+  border-radius: 10px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.gray {
+  color: #1F2937;
+  background-color: #F3F4F6;
+}
+
+.red {
+  color: #991B1B;
+  background-color: #FEE2E2;
+}
+
+.yellow {
+  color: #92400E;
+  background-color: #FEF3C7;
+}
+
+.green {
+  color: #065F46;
+  background-color: #D1FAE5;
+}
+
+.blue {
+  color: #1E40AF;
+  background-color: #DBEAFE;
+}
+
+.indigo {
+  color: #3730A3;
+  background-color: #E0E7FF;
+}
+
+.purple {
+  color: #5B21B6;
+  background-color: #EDE9FE;
+}
+
+.pink {
+  color: #9D174D;
+  background-color: #FCE7F3;
 }
