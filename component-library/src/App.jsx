@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Badge from './components/Badge/Badge.jsx'
+import Badge from './components/Badge.jsx'
 import Banner from './components/Banner/Banner.jsx'
 import Card from './components/Card/Card.jsx'
 // import './App.css'
@@ -28,35 +28,42 @@ function App() {
         <Badge type="pill" color="pink">Badge</Badge>
       </section>
       <section className="flex-column" id="banners-message">
-        <Banner status="success" title="Congratulations" text="true">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.
-        </Banner>
-        <Banner status="attention" title="Attention" text="true">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam quo totam eius aperiam dolorum.
-        </Banner>
-        <Banner status="error" title="There is something wrong with your application" text="true">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam quo totam eius aperiam dolorum.
-        </Banner>
-        <Banner status="neutral" title="Update available" text="true">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.
-        </Banner>
-      </section>
-      <section className="flex-column" id="banners">
-      <Banner status="success" title="Congratulations">          
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.
-      </Banner>
-      <Banner status="attention" title="Attention">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam quo totam eius aperiam dolorum.
-      </Banner>
-      <Banner status="error" title="There is something wrong with your application">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam quo totam eius aperiam dolorum.
-      </Banner>
-      <Banner status="neutral" title="Update available">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam.
-      </Banner>     
+        <h2>Banner</h2>
+        <p>Banner component with single-line or multi-line option.</p>
+        <Banner 
+          status="success" 
+          title="Congratulations" 
+          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam."
+          color="green"
+        />
+        <Banner 
+          status="attention" 
+          title="Attention" 
+          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam."
+          color="yellow"
+        />
+        <Banner 
+          status="error" 
+          title="There is something wrong with your application" 
+          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam."
+          color="red"
+        />
+        <Banner 
+          status="neutral" 
+          title="Update available" 
+          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid pariatur, ipsum similique veniam."
+          color="blue"
+        />
+        <Banner status="success" title="Congratulations" color="green"/>          
+        <Banner status="attention" title="Attention" color="yellow" />
+        <Banner status="error" title="There is something wrong with your application" color="red" />
+        <Banner status="neutral" title="Update available" color="blue" />
       </section>
       <section id="cards">
-        <Card icon="" title="Easy Deployment">Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.</Card>
+        <h2>Card</h2>
+        <p>A card component with a default icon, and a hover effect. Color is optional.</p>
+        <Card icon="" color="" title="Easy Deployment">Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.</Card>
+        <Card icon="" color="blue" title="Easy Deployment">Ac tincidunt sapien vehicula erat auctor pellentesque rhoncus. Et magna sit morbi lobortis.</Card>
       </section>
       <section id="testimonials"></section>
       <section id="tooltip"></section>
