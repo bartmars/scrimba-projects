@@ -6,6 +6,6 @@ export default function CardIcon() {
     const { icon } = React.useContext(CardContext)
 
     return (
-        <BsCloudUpload />
+        <BsCloudUpload className="card__icon" />
     )
 }

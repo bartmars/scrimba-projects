@@ -1,12 +1,10 @@
 import React from "react"
 import { BannerContext } from "./Banner"
 
-export default function BannerText() {
+export default function BannerText({ children }) {
     const { text } = React.useContext(BannerContext)
 
     return (
-        <>
-            {text && <p className="message__text">{text}</p>}
-        </>
+        <p className="message__text">{children}</p>
     )
 }

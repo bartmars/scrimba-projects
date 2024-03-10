@@ -6,16 +6,15 @@ import BannerText from "./BannerText"
 
 const BannerContext = React.createContext()
 
-export default function Banner({ status, color, title, text }) {
+export default function Banner({ children, status, color }) {
     const allClasses = classNames('banner', color)
 
     return (
-        <BannerContext.Provider value={{ status, title, text }}>
+        <BannerContext.Provider value={{ status }}>
             <div className={allClasses}>
                 <BannerIcon className="banner__icon" />
                 <div className="banner__content">
-                    <BannerTitle/>
-                    <BannerText/>
+                    {children}
                 </div>
             </div>
         </BannerContext.Provider>

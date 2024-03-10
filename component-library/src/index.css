@@ -23,6 +23,10 @@ section {
   gap: 0.5em;
 }
 
+.flex-row {
+  flex-wrap: wrap;
+}
+
 .flex-column {
   flex-direction: column;
 }
