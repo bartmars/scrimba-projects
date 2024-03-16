@@ -1,8 +1,8 @@
 import React from "react"
 import classNames from "classnames"
 import BannerIcon from "./BannerIcon"
-import BannerTitle from "./BannerTitle"
-import BannerText from "./BannerText"
+// import BannerTitle from "./BannerTitle"
+// import BannerText from "./BannerText"
 
 const BannerContext = React.createContext()
 

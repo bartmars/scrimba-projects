@@ -105,6 +105,39 @@ section {
   margin: 8px 0 0 0;
 }
 
+.testimonial {
+  font-weight: 500;
+  font-size: 24px;
+
+  position: relative;
+  margin-top: 80px; /* TODO: needs to fixed at a later stage */
+  height: 355px;
+
+}
+
+.testimonial__image {
+  position: absolute;
+  top: -32px;
+  left: 36px;
+  width: 384px;
+
+}
+
+.testimonial__text {
+  text-align: r;
+}
+
+.testimonial__person {
+  margin-top: 24px;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.testimonial__job-title {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
 /* Colors */
 
 .gray {
@@ -130,6 +163,11 @@ section {
 .blue {
   color: #1E40AF;
   background-color: #DBEAFE;
+}
+
+.dark-blue {
+  background-color: #1E40AF;
+  color: #DBEAFE;
 }
 
 .indigo {
