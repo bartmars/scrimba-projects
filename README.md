@@ -23,3 +23,5 @@ These are solo projects that I've done for the Frontend Career Path:
 ## TODO
 * Fix project Oldagram stretch goals
 * Tenzies game stretch goals
+* Component Library stretch goals
+* Mobile ToDo app: doesn't seem to be working anymore
