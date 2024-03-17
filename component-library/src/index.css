@@ -8,8 +8,10 @@ body {
   font-size: 0.875rem;
 }
 
+/* Utility */
+
 .container {
-  max-width: 70%;
+  max-width: 85%;
   margin: auto;
 }
 
@@ -31,6 +33,18 @@ section {
   flex-direction: column;
 }
 
+.message__title {
+  margin: 0;
+  font-weight: 700;
+}
+
+.message__body {
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+
+/* Badge */
+
 .square,
 .pill {
   display: inline-block;
@@ -46,6 +60,8 @@ section {
   border-radius: 10px;
 }
 
+/* Banner */
+
 .banner {
   display: flex;
   align-items: stretch;
@@ -57,6 +73,8 @@ section {
   width: 20px;
   height: 20px;
 }
+
+/* Card */
 
 .card {
   margin-top: 40px;
@@ -95,47 +113,50 @@ section {
   align-items: center;
 }
 
-.message__title {
-  margin: 0;
-  font-weight: 700;
-}
-
-.message__body {
-  padding: 0;
-  margin: 8px 0 0 0;
-}
+/* Testimonial */
 
 .testimonial {
   font-weight: 500;
   font-size: 24px;
-
   position: relative;
   margin-top: 80px; /* TODO: needs to fixed at a later stage */
   height: 355px;
-
 }
 
 .testimonial__image {
   position: absolute;
-  top: -32px;
-  left: 36px;
-  width: 384px;
+  top: -64px;
+  left: 14px;
+  width: 350px;
+}
 
+.testimonial__quote {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 48px;
+  opacity: 50%;
 }
 
 .testimonial__text {
-  text-align: r;
+  font-size: 24px;
+  font-weight: 500;
+  text-align: left;
+  padding: 32px 32px 8px 420px;
+  line-height: 1.5;
 }
 
 .testimonial__person {
   margin-top: 24px;
   font-weight: 700;
   font-size: 1rem;
+  padding-left: 420px;
 }
 
 .testimonial__job-title {
+  margin-top: 5px;
   font-weight: 500;
   font-size: 1rem;
+  padding-left: 420px;
 }
 
 /* Colors */
