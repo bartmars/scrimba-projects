@@ -116,48 +116,109 @@ section {
 /* Testimonial */
 
 .testimonial {
-  font-weight: 500;
-  font-size: 24px;
   position: relative;
-  margin-top: 80px; /* TODO: needs to fixed at a later stage */
-  height: 355px;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial,
+.testimonial__withoutImage {
+  height: 450px;
 }
 
 .testimonial__image {
   position: absolute;
-  top: -64px;
-  left: 14px;
-  width: 350px;
+  width: 50%;
 }
 
-.testimonial__quote {
-  display: block;
-  margin-bottom: 16px;
-  font-size: 48px;
-  opacity: 50%;
+
+.testimonial__text, 
+.testimonialText__withoutImage {
+  font-size: 24px;
+  line-height: 1.5;
 }
 
 .testimonial__text {
-  font-size: 24px;
-  font-weight: 500;
-  text-align: left;
-  padding: 32px 32px 8px 420px;
-  line-height: 1.5;
+  padding: 1em;
+}
+
+.testimonialText__withoutImage::before {
+  content: '"'
+}
+.testimonialText__withoutImage {
+  padding: 1em;
+  text-align: center;
+}
+.testimonialText__withoutImage::after {
+  content: '"'
 }
 
 .testimonial__person {
   margin-top: 24px;
-  font-weight: 700;
   font-size: 1rem;
-  padding-left: 420px;
+  font-weight: 700;
 }
 
 .testimonial__job-title {
   margin-top: 5px;
-  font-weight: 500;
   font-size: 1rem;
-  padding-left: 420px;
 }
+
+.testimonial,
+.testimonial__text,
+.testimonial__job-title {
+  font-weight: 500;
+}
+
+@media (min-width: 500px) {
+  .testimonial {
+    font-size: 24px;
+    margin-top: 80px;
+    height: 400px;
+  }
+
+  .testimonial__withoutImage {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .testimonial__image {
+    top: -64px;
+    left: 14px;
+    width: 350px;
+  }
+
+  .testimonial__quote {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 48px;
+    opacity: 50%;
+  }
+
+  .testimonial__text {
+    text-align: left;
+    padding: 32px 32px 8px 420px;
+  }
+
+  .testimonialText__withoutImage {
+    padding: 32px;
+    line-height: 1.5;
+    text-align: center;
+    width: 75%;
+  }
+
+  .testimonial__text,
+  .testimonial__person,
+  .testimonial__job-title {
+    padding-left: 420px;
+  }
+}
+
 
 /* Colors */
 
