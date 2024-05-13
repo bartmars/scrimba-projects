@@ -24,9 +24,6 @@ export default function Question(props) {
         if (!disabled && isSelected && isCorrect) {
             allClasses = className('answer', 'correct-answer')
         }
-        // else if (!disabled && correctAnswer) {
-        //     allClasses = className('answer', 'correct-answer')
-        // }
         else if (!disabled && isSelected && !isCorrect) {
             allClasses = className('answer', 'wrong-answer')
         }
@@ -52,9 +49,11 @@ export default function Question(props) {
     })
 
     return (
-        <>
-            <h2>{question}</h2>
-            {renderAnswers}
-        </>
+        <div className='question__container'>
+            <p className='question'>{question}</p>
+            <div>
+                {renderAnswers}
+            </div>
+        </div>
     )
 }

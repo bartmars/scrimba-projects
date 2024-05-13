@@ -4,10 +4,12 @@ import React from 'react'
 
 export default function Start(props) {
     return (
-        <>
-            <h1>Quizzical</h1>
-            <p>Check your knowledge with a short quiz</p>
-            <button onClick={props.startGame}>Start Quiz</button>
-        </>
+        <main>
+            <div className='app__start'>
+                <h1 className='app__title'>Quizzical</h1>
+                <p className='app__description'>Check your knowledge with a short quiz</p>
+                <button className='btn btn__start' onClick={props.startGame}>Start Quiz</button>
+            </div>
+        </main>
     )
 }
