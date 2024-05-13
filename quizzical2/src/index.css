@@ -1,0 +1,15 @@
+.answer {
+    color: black;
+}
+
+.selected-answer {
+    color: blue;
+}
+
+.correct-answer {
+    color: green;
+}
+
+.wrong-answer {
+    color: red;
+}
