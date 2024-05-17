@@ -1,105 +1,132 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla:wght@400;700&display=swap');
-
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background-color: #F5F7FB;
-  margin: 0;
-  background-image: url(./assets/blob-top-right.png), url(./assets/blob-bottom-left.png);
-  background-position: top right, bottom left;
-  background-repeat: no-repeat, no-repeat;
-  min-height: 100dvh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2em;
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    background-image: url(./assets/yellow-blob.png), url(./assets/lightblue-blob.png);
+    background-position: top right, bottom left;
+    background-repeat: no-repeat, no-repeat;
+}
+
+div#root {
+    padding: 0;
 }
 
 main {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
 }
 
-.container {
-  display: block;
-  width: 34.375em;
-  max-width: 80%;
-  text-align: center;
+.app__start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-.title {
-  font-family: 'Karla', sans-serif;
-  margin: 0;
+.app__title {
+    font-family: 'Karla', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    padding-bottom: 0.5em;
 }
 
-p {
-  margin-bottom: 0;
+.app__description {
+    padding-bottom: 2em;
 }
 
 .btn {
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  background-color: #4D5B9E;
-  padding: 0.75em 3em;
-  border-radius: 1em;
-  border: none;
-  color: #FFF;
-  margin-top: 2em;
-  margin-right: 1em;
+    background-color: #4D5B9E;
+    border: none;
+    border-radius: 0.625em;
+    color: #F5F7FB;
+    font-weight: 500;
+    padding: 1em 3em;
 }
 
-.center {
-  text-align: center;
+.btn__check-answer,
+.btn__reset {
+    margin-top: 1.5em;
+}
+
+.question__container {
+    text-align: left;
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+    padding-bottom: 1em;
+    width: 70%;
+    border-bottom: 1px solid #DBDEF0;
+    margin: auto;
+}
+
+.question__container > div {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
 }
 
 .question {
-  padding-bottom: 1em;
-  border-bottom: 1px solid #DBDEF0;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+    color: #293264;
+    font-family: 'Karla', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 1em 0 0 0;
+    padding-bottom: 1em;
 }
 
-.question h2 {
-  font-family: 'Karla', sans-serif;
-  font-weight: 700;
-}
-
-.answers {
-  border: none;
+.answer,
+.selected-answer,
+.correct-answer,
+.wrong-answer,
+.disabled-answer {
+    font-size: 0.625rem;
+    font-weight: 500;
+    color: #293264;
+    padding: 0.5em 1.25em;
+    border-radius: 0.625em;
+    min-width: 3.75em;
+    /* margin-right: 2em; */
 }
 
 .answer {
-  display: inline-block;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.75rem;
-  border-radius: 0.5em;
-  color: #293264;
-  padding: 0.5em 1.5em;
-  cursor: pointer;
-  border: #4D5B9E 1px solid;
-  margin: 0.5em;
+    border: 1px solid #4D5B9E;
 }
 
-.answer input {
-  display: none;
+.answer > input[type='radio'] {
+    display: none;
 }
 
-/* .answer label:checked {
-  background-color: #D6DBF5;
-  border: 1px solid #D6DBF5;
-} */
-
-/* .answer-correct input:checked+label {
-  background-color: #94D7A2;
-  border: 1px solid #94D7A2;
+.selected-answer {
+    background-color: #D6DBF5;
+    border: 1px solid #D6DBF5;
 }
 
-.answer-wrong input:checked+label {
-  background-color: #F8BCBC;
-  border: 1px solid #F8BCBC;
-} */
+.correct-answer {
+    background-color: #94D7A2;
+    border: 1px solid #94D7A2;
+}
+
+.wrong-answer {
+    background-color: #F8BCBC;
+    border: 1px solid #F8BCBC;
+}
+
+.disabled-answer {
+    border: 1px solid #4D5B9E;
+}
+
+.app__score {
+    font-weight: 700;
+    font-size: 0.8em;
+}
+
+.app__score > button {
+    margin-left: 2em;
+}

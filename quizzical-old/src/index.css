@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Karla:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #F5F7FB;
+  margin: 0;
+  background-image: url(./assets/blob-top-right.png), url(./assets/blob-bottom-left.png);
+  background-position: top right, bottom left;
+  background-repeat: no-repeat, no-repeat;
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.container {
+  display: block;
+  width: 34.375em;
+  max-width: 80%;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Karla', sans-serif;
+  margin: 0;
+}
+
+p {
+  margin-bottom: 0;
+}
+
+.btn {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  background-color: #4D5B9E;
+  padding: 0.75em 3em;
+  border-radius: 1em;
+  border: none;
+  color: #FFF;
+  margin-top: 2em;
+  margin-right: 1em;
+}
+
+.center {
+  text-align: center;
+}
+
+.question {
+  padding-bottom: 1em;
+  border-bottom: 1px solid #DBDEF0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.question h2 {
+  font-family: 'Karla', sans-serif;
+  font-weight: 700;
+}
+
+.answers {
+  border: none;
+}
+
+.answer {
+  display: inline-block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.75rem;
+  border-radius: 0.5em;
+  color: #293264;
+  padding: 0.5em 1.5em;
+  cursor: pointer;
+  border: #4D5B9E 1px solid;
+  margin: 0.5em;
+}
+
+.answer input {
+  display: none;
+}
+
+/* .answer label:checked {
+  background-color: #D6DBF5;
+  border: 1px solid #D6DBF5;
+} */
+
+/* .answer-correct input:checked+label {
+  background-color: #94D7A2;
+  border: 1px solid #94D7A2;
+}
+
+.answer-wrong input:checked+label {
+  background-color: #F8BCBC;
+  border: 1px solid #F8BCBC;
+} */

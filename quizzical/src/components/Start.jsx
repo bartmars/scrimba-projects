@@ -8,7 +8,7 @@ export default function Start(props) {
             <div className='app__start'>
                 <h1 className='app__title'>Quizzical</h1>
                 <p className='app__description'>Check your knowledge with a short quiz</p>
-                <button className='btn btn__start' onClick={props.startGame}>Start Quiz</button>
+                <button type='button' className='btn btn__start' onClick={props.startGame}>Start Quiz</button>
             </div>
         </main>
     )

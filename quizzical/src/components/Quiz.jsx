@@ -94,11 +94,13 @@ export default function Quiz(props) {
         <main>
             <div className='app__questions'>
                 {renderQuestions}
-                {quizActive && <button className='btn btn__check-answer' onClick={handleSubmit}>Check answers</button>}
+                {quizActive && <button type='button' className='btn btn__check-answer' onClick={handleSubmit}>Check answers</button>}
                 {!quizActive && 
                     <div>
-                        <p className='app__score'>You scored {score}/{quizData.length} correct {score === 1 ? 'answer' : 'answers'}</p>
-                        <button className='btn btn__reset' onClick={restartQuiz}>Play again</button>
+                        <p className='app__score'>
+                            You scored {score}/{quizData.length} correct {score === 1 ? 'answer' : 'answers'}
+                            <button type='button' className='btn btn__reset' onClick={restartQuiz}>Play again</button>
+                        </p>
                     </div>
                 }
             </div>

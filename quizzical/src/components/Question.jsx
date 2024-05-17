@@ -1,48 +1,62 @@
-import React from "react"
-import { nanoid } from "nanoid"
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import React from 'react'
+import { nanoid } from 'nanoid'
+import className from 'classnames'
 
 export default function Question(props) {
-    const answers = props.answers.map(item => {
-        const styles = {
-            backgroundColor:
-                /* correct answer */
-                props.hasGameEnded && item.isSelected && item.isCorrect ? "#94D7A2" :
-                /* wrong answer */
-                props.hasGameEnded && item.isSelected && !item.isCorrect ? "#F8BCBC" : 
-                /* selected answer */
-                item.isSelected ? "#D6DBF5" : "", 
-            border:
-                props.hasGameEnded && item.isSelected && item.isCorrect ? "none" :
-                props.hasGameEnded && item.isSelected && !item.isCorrect ? "none" :
-                props.hasGameEnded ? "#4D5B9E 1px solid" : ""
+    const { 
+        id, 
+        question, 
+        answers, 
+        selectedAnswer,
+        correctAnswer,
+        handleChange,
+        disabled
+    } = props
+
+    const renderAnswers = answers.map(answer => {
+        let allClasses = className('answer')
+
+        const isSelected = selectedAnswer === answer
+        const isCorrect = selectedAnswer === correctAnswer
+
+        if (!disabled && isSelected && isCorrect) {
+            allClasses = className('answer', 'correct-answer')
+        }
+        else if (!disabled && isSelected && !isCorrect) {
+            allClasses = className('answer', 'wrong-answer')
+        }
+        else if (!disabled) {
+            allClasses = className('answer', 'disabled-answer')
+        }
+        else if (disabled && isSelected) {
+            allClasses = className('answer', 'selected-answer')
+        }
+        else {
+            allClasses = className('answer')
         }
 
         return (
-            /* 
-                Don't use id attribute in input element and htmlFor attribute in label 
-                element when wrapping input element, inside the label element
-            */
-            <label key={nanoid()} className="answer" style={styles}>
+            <label key={nanoid()} className={allClasses}>
                 <input
-                    name={props.id}
-                    value={item.answer}
-                    onChange={(event) => props.handleChange(event, props.id)}
-                    // onChange={(event) => console.log(item.id)}
-                    checked={props.id === item.answer}
-                    disabled={props.hasGameEnded}
                     type="radio"
-                />
-                {item.answer}
+                    value={answer}
+                    name={id}
+                    onChange={event => handleChange(event)}
+                    checked={selectedAnswer === answer}
+                    disabled={!disabled}
+                />{answer}
             </label>
         )
     })
 
     return (
-        <div className="question">
-            <h2>{props.question}</h2>
-            <fieldset key={nanoid()} className="answers">
-                {answers}
-            </fieldset>
+        <div className='question__container'>
+            <p className='question'>{question}</p>
+            <div>
+                {renderAnswers}
+            </div>
         </div>
     )
 }
