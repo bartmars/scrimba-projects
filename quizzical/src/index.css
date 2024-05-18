@@ -68,9 +68,15 @@ main,
     align-content: flex-start;
     flex-direction: column;
     padding-bottom: 1em;
-    width: 70%;
+    max-width: 90%;
     border-bottom: 1px solid #DBDEF0;
     margin: auto;
+}
+
+@media (min-width: 30em) {
+    .question__container {
+        width: 34.375em;
+    }
 }
 
 .question__container > div {
