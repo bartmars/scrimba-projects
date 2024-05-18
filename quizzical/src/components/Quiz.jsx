@@ -92,7 +92,7 @@ export default function Quiz(props) {
 
     return (
         <main>
-            <div className='app__questions'>
+            <div className='container app__questions'>
                 {renderQuestions}
                 {quizActive && <button type='button' className='btn btn__check-answer' onClick={handleSubmit}>Check answers</button>}
                 {!quizActive && 

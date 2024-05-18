@@ -7,6 +7,7 @@ body {
     font-family: "Inter", sans-serif;
     font-size: 1rem;
     font-weight: 400;
+    overflow: auto;
     background-image: url(./assets/yellow-blob.png), url(./assets/lightblue-blob.png);
     background-position: top right, bottom left;
     background-repeat: no-repeat, no-repeat;
@@ -17,17 +18,23 @@ div#root {
 }
 
 main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100dvh;
 }
 
-.app__start {
+.container {
+    width: 90%;
+    /* margin: auto; */
+}
+
+main,
+.app_start {
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+.app__start {
+    flex-direction: column;
 }
 
 .app__title {
@@ -130,3 +137,21 @@ main {
 .app__score > button {
     margin-left: 2em;
 }
+
+/* OLD */
+
+/* body {
+    font-family: "Inter", sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    background-image: url(./assets/yellow-blob.png), url(./assets/lightblue-blob.png);
+    background-position: top right, bottom left;
+    background-repeat: no-repeat, no-repeat;
+} */
+
+/* main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100dvh;
+} */
