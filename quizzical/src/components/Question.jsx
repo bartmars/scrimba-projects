@@ -27,9 +27,6 @@ export default function Question(props) {
         else if (!disabled && isSelected && !isCorrect) {
             allClasses = className('answer', 'wrong-answer')
         }
-        else if (!disabled) {
-            allClasses = className('answer', 'disabled-answer')
-        }
         else if (disabled && isSelected) {
             allClasses = className('answer', 'selected-answer')
         }
